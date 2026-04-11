@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/sentin-kufrik-prirucka.html"
+  status = 200
