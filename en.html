@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentin Briefcase — A Guide to AI Prompts for Managers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --accent: #6B4C9A;
+    --accent-light: #E8E0F0;
+    --accent-dark: #4A3470;
+    --border: #E5E5E5;
+    --prompt-bg: #F7F5FA;
+    --prompt-border: #D4C8E2;
+    --tip-bg: #FFF8E7;
+    --tip-border: #F0D060;
+    --story-bg: #F0F7FF;
+    --story-border: #A0C4E8;
+    --section-hr: #D4C8E2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #6B4C9A 0%, #4A3470 50%, #2D1F45 100%);
+    color: white;
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .hero .author {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    position: relative;
+  }
+
+  /* NAVIGATION */
+  .toc {
+    max-width: 800px;
+    margin: -30px auto 40px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px;
+    position: relative;
+    z-index: 2;
+  }
+  .toc h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .toc-item:hover { background: var(--accent-light); }
+  .toc-num {
+    background: var(--accent);
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    margin: 60px 0 32px;
+    padding: 24px 0;
+    border-top: 3px solid var(--section-hr);
+  }
+  .section-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin-bottom: 6px;
+  }
+  .section-header .section-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  /* PROMPT CARDS */
+  .prompt-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .prompt-card-header {
+    padding: 24px 28px 16px;
+  }
+  .prompt-card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .prompt-number {
+    background: var(--accent);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .prompt-situation {
+    margin: 8px 0 0 42px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* PROMPT BOX */
+  .prompt-box {
+    margin: 16px 20px 20px;
+    background: var(--prompt-bg);
+    border: 1px solid var(--prompt-border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    position: relative;
+  }
+  .prompt-box::before {
+    content: 'PROMPT';
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+  .prompt-box pre {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text);
+  }
+  .prompt-box .placeholder {
+    background: var(--accent-light);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--accent-dark);
+  }
+
+  /* COPY BUTTON */
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .copy-btn:hover { opacity: 1; }
+
+  /* TIP BOX */
+  .tip-box {
+    margin: 0 20px 20px;
+    background: var(--tip-bg);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+  }
+  .tip-box strong {
+    color: #8B6914;
+  }
+
+  /* STORY BOX */
+  .story-box {
+    margin: 0 20px 20px;
+    background: var(--story-bg);
+    border-left: 4px solid var(--story-border);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .story-box strong {
+    color: #2A6496;
+  }
+  .story-box em {
+    color: #555;
+  }
+
+  /* INTRO SECTION */
+  .intro-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    padding: 32px 28px;
+    margin-bottom: 32px;
+  }
+  .intro-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent-dark);
+  }
+  .intro-card p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* PRINCIPLES */
+  .principles {
+    background: linear-gradient(135deg, #6B4C9A 0%, #4A3470 100%);
+    border-radius: 16px;
+    padding: 36px 32px;
+    color: white;
+    margin: 48px 0;
+  }
+  .principles h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .principle {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .principle-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .principle-text h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .principle-text p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* NEW TAG */
+  .tag-new {
+    background: #28A745;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+  .tag-upgraded {
+    background: #F59E0B;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 40px; }
+    .toc { margin: -20px 16px 32px; padding: 24px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 16px 60px; }
+    .prompt-box { margin: 12px 16px 16px; padding: 16px; }
+    .tip-box, .story-box { margin: 0 16px 16px; }
+    .prompt-card-header { padding: 20px 20px 12px; }
+    .prompt-situation { margin-left: 0; }
+  }
+
+  @media print {
+    .hero { padding: 40px 24px 30px; }
+    .prompt-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .copy-btn { display: none; }
+  }
+
+  /* Language switcher */
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .lang-switch a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-switch a.active {
+    background: white;
+    color: var(--accent-dark);
+  }
+  .lang-switch a:hover:not(.active) {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+  @media (max-width: 640px) {
+    .lang-switch { top: 12px; right: 12px; font-size: 12px; }
+    .lang-switch a { padding: 5px 10px; }
+  }
+  @media print {
+    .lang-switch { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Language switcher -->
+<nav class="lang-switch" aria-label="Language">
+  <a href="/">CZ</a>
+  <a href="/en.html" class="active">EN</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Sentin Briefcase</h1>
+  <p class="subtitle">17 AI prompts I actually use. No theory, no hype—just tools that work.</p>
+  <p class="author">Senta Čermáková • ex-Deloitte, ex-corporate • Inspiruj.se • 2026</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <a href="#audit" class="toc-item"><span class="toc-num">0</span> Personal AI Audit</a>
+    <a href="#p1" class="toc-item"><span class="toc-num">1</span> Reference Letter</a>
+    <a href="#p2" class="toc-item"><span class="toc-num">2</span> Performance Review</a>
+    <a href="#p3" class="toc-item"><span class="toc-num">3</span> Difficult Conversations</a>
+    <a href="#p4" class="toc-item"><span class="toc-num">4</span> Executive Sparring</a>
+    <a href="#p5" class="toc-item"><span class="toc-num">5</span> Rookie Leadership</a>
+    <a href="#p6" class="toc-item"><span class="toc-num">6</span> PESTLE</a>
+    <a href="#p7" class="toc-item"><span class="toc-num">7</span> SWOT</a>
+    <a href="#p8" class="toc-item"><span class="toc-num">8</span> Playing to Win</a>
+    <a href="#p9" class="toc-item"><span class="toc-num">9</span> Blue Ocean</a>
+    <a href="#p10" class="toc-item"><span class="toc-num">10</span> Mind Map</a>
+    <a href="#p11" class="toc-item"><span class="toc-num">11</span> Brainstorming</a>
+    <a href="#p12" class="toc-item"><span class="toc-num">12</span> Six Thinking Hats</a>
+    <a href="#p13" class="toc-item"><span class="toc-num">13</span> Multi-perspective</a>
+    <a href="#p14" class="toc-item"><span class="toc-num">14</span> OSINT on Individuals</a>
+    <a href="#p15" class="toc-item"><span class="toc-num">15</span> OSINT on Companies</a>
+    <a href="#p16" class="toc-item"><span class="toc-num">16</span> Pre-mortem</a>
+    <a href="#p17" class="toc-item"><span class="toc-num">17</span> Preparing for a Meeting</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- INTRO: PERSONAL AI AUDIT -->
+<div class="intro-card" id="audit">
+  <h3>Before you open the briefcase: Personal AI audit</h3>
+  <p>Before you dive into the prompts, do one thing. Think about what you’ve been doing over the past week. Divide your activities into two piles.</p>
+  <p><strong>First pile:</strong> what you enjoy, what defines your identity, your purpose. Keep that to yourself. You wouldn’t give that to AI, even if it could do it better—because you’d be destroying your sense of purpose at work.</p>
+  <p><strong>Second pile:</strong> what you’d just as easily delegate to an intern, an assistant, or a colleague. This is exactly where AI belongs.</p>
+  <p>And then there’s the third step that people forget: <strong>teach the AI your style.</strong> Gather texts you’ve written yourself—reports, letters, emails, presentations. Give them to the AI as a template. It’s called <em>style, tone, and voice</em>. AI has an incredible ability to mimic what you’ve invested years of practice into.</p>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK I: LIDÉ & HR -->
+<!-- ============================================ -->
+<div class="section-header" id="blok1">
+  <h2>I. People &amp; HR</h2>
+  <p class="section-desc">Prompts for anyone who leads people—from the first intern to an entire region.</p>
+</div>
+
+<!-- PROMPT 1 -->
+<div class="prompt-card" id="p1">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">1</span> <span class="tag-upgraded">Improved</span> Recommendation Letter</h3>
+    <p class="prompt-situation">You need to write a reference letter for a colleague or intern. You know in your head what they did—but putting it into words takes forever.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You’re an experienced HR professional and ghostwriter specializing in professional reference letters.
+
+I need to write a reference letter for <span class="placeholder">[NAME]</span>, who worked on my team as <span class="placeholder">[POSITION]</span> for <span class="placeholder">[PERIOD]</span>.
+
+Here are the projects they worked on (rated 1–5, where 5 is excellent):
+1. <span class="placeholder">[Project A]</span> — rating: <span class="placeholder">[X/5]</span>
+2. <span class="placeholder">[Project B]</span> — rating: <span class="placeholder">[X/5]</span>
+3. <span class="placeholder">[Project C]</span> — rating: <span class="placeholder">[X/5]</span>
+
+Before you write the letter, ask me 5 short questions so you can understand:
+- this person’s strengths
+- the areas where they’ve improved the most
+- how they fit into the team
+- what I wish for them in the future
+
+Based on my answers, write a reference letter in a professional yet personal tone. The letter should be no longer than one A4 page.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “In seven and a half years at Deloitte, I’ve worked with 250 young people aged 15 to 25—geniuses, both male and female. I used to spend an hour, sometimes two, writing each recommendation letter. Then AI came along, and I realized that all I had to do was enter three projects, evaluate them—and let the AI highlight those unique talents. It’s done in two minutes, and it’s very similar to what I would have written myself.”
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> Add context about where the person is headed. Tell the AI, for example: “They’re going to study in Finland; write it in a startup-friendly, approachable style.” One sentence changes the entire tone of the letter.
+  </div>
+</div>
+
+<!-- PROMPT 2 -->
+<div class="prompt-card" id="p2">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">2</span> Performance Review <span class="tag-upgraded">Improved</span></h3>
+    <p class="prompt-situation">The annual review is approaching. You have projects in mind, but you need to turn them into a balanced, fair, and constructive review.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are an experienced HR consultant specializing in talent management and performance review processes in large companies.
+
+I need to write an annual performance review for a member of my team.
+
+Here are the key projects they worked on (rated A–E, where A is excellent):
+1. <span class="placeholder">[Project]</span> — rating: <span class="placeholder">[X]</span>
+2. <span class="placeholder">[Project]</span> — rating: <span class="placeholder">[X]</span>
+3. <span class="placeholder">[Project]</span> — rating: <span class="placeholder">[X]</span>
+
+Review structure:
+- Overall performance summary (3–4 sentences)
+- Strengths with specific examples
+- Areas for development with suggestions on HOW to improve (not just WHAT to improve)
+- Recommendations for the next period (goals, development activities, certifications)
+
+Before writing the review, ask me 3 follow-up questions focused on:
+- collaboration with other team members
+- initiative and proactivity
+- a situation where I surprised you (positively or negatively)
+
+Write in a balanced way — even an excellent employee has room to grow, and even a weaker one has strengths.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “Take the time AI saves you on drafting and invest it in people. Go for a walk with them somewhere outside the office. Two hours, a friendly environment where they’ll open up to you. Don’t record the interviews—it has to be a safe environment. Then use the AI to ensure the essentials make it to HR: suggestions for improvement, milestones, and a certification plan. Without suggestions for improvement, the review is a static affair—it lacks the growth phase.”
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> The more senior the person, the more projects and questions you should include in the prompt. Junior = 3 projects. Senior = 5–10 projects + 5 questions. Seniors are hard to come by and cost a lot of money—make sure you take good care of them.
+  </div>
+</div>
+
+<!-- PROMPT 3 -->
+<div class="prompt-card" id="p3">
+  <div class="prompt-card-header">
+    <h3><span class="tag-new">3</span> Role-playing: Difficult managerial conversations</h3>
+    <p class="prompt-situation">You have an uncomfortable conversation ahead of you. You need to run through it in a "dry run" — like a pilot in a simulator.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are an experienced executive coach specializing in difficult conversations in a corporate setting.
+
+I want to run through a difficult conversation with you. You will play the role of:
+
+A) An employee whom I must inform that they will not pass their probationary period
+B) A colleague who systematically misses deadlines and affects the entire team
+C) A subordinate who is asking for a promotion but isn’t ready for it yet
+D) A team member who spreads a negative atmosphere
+
+I choose option: <span class="placeholder">[A/B/C/D]</span>
+
+My context: <span class="placeholder">[brief description — position, company, team size]</span>
+
+Rules of the game:
+1. Play your role realistically — react emotionally, ask uncomfortable questions, defend yourself.
+2. After each of my lines, give me brief feedback in parentheses: what I said well, what I could have said better.
+3. At the end of the conversation, give me an overall evaluation: what worked, where I lost control, and 3 specific tips for a real interview.
+
+Start by asking me about the context of the situation, and then we’ll begin.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “A friend of mine went to DVTV and was terrified of Veselovský. We took 10 transcripts of his interviews, fed them into an AI, and said, ‘Study this journalist and come up with at least 50 of the most uncomfortable questions he might ask.’ The result was absolutely perfect. My friend then showed it to Veselovský himself, and he said, ‘I need to do this so I can ask better questions.’ Role-playing with AI works—whether you’re preparing for a tough employee interview or a press conference.”
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> You can also feed the AI the other party’s profile—LinkedIn, articles, public statements. The more context, the more realistic the simulation. It also works for preparing for the board, investors, or journalists.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK II: LEADERSHIP & COACHING -->
+<!-- ============================================ -->
+<div class="section-header" id="blok2">
+  <h2>II. Leadership &amp; Coaching</h2>
+  <p class="section-desc">From personal sparring to analytical frameworks for understanding your own leadership style.</p>
+</div>
+
+<!-- PROMPT 4 -->
+<div class="prompt-card" id="p4">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">4</span> Executive Sparring Partner <span class="tag-upgraded">Improved</span></h3>
+    <p class="prompt-situation">You have a new role, a new team, new responsibilities. You need a strategic plan, not motivational quotes.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a globally recognized executive coach with 20 years of experience advising C-level management.
+
+My situation:
+<span class="placeholder">[DESCRIBE — e.g.: I am a marketing manager at a Czech startup. I’ve been promoted and am now responsible for marketing in 18 Central European countries. However, the marketing managers in these countries don’t report to me—they report to their country managers.]</span>
+
+What I need:
+1. An analysis of my position—what leverage I have, what’s beyond my control
+2. An action plan for the first 3 months (30-60-90 format)
+3. Format: WHAT / WHO / WHEN / WHY / RISK table
+4. For each step, also list potential resistance and how to overcome it
+
+Before you begin, ask me 3 questions to understand the company culture, my resources, and the main obstacles.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “A young woman I was mentoring came to see me. She was promoted from the Czech market to 18 countries, and no one told her anything. ‘What should I do?’ I told her a few things—and then I went home and we wrote this prompt. Because this is how you can do it systematically. Those first three months are always crucial—in those three months, you know very well whether it was the right choice.”
+  </div>
+</div>
+
+<!-- PROMPT 5 -->
+<div class="prompt-card" id="p5">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">5</span> 7 Stages of Leadership (Rooke &amp; Torbert) – <span class="tag-upgraded">Enhanced</span></h3>
+    <p class="prompt-situation">Want to understand your leadership style—or the style of someone you work with—through a Harvard academic framework?</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>Are you familiar with the "Seven Types of Transformational Leadership" framework (David Rooke &amp; William R. Torbert, Harvard Business Review)?
+
+Task: Analyze the leadership style of <span class="placeholder">[NAME OR DESCRIPTION]</span> and determine which category (Opportunist → Diplomat → Expert → Achiever → Individualist → Strategist → Alchemist) they fall into at different stages of their career.
+
+Output in table format:
+| Period | Career Stage | Leadership Type | Key Behaviors | How It Manifested |
+
+At the end, add:
+- Overall development pattern (how the style changed and why)
+- Recommendations: what this person should develop to move to the next level
+
+If you need up-to-date information, look it up online.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “Every leader goes through this hierarchy—from a cautious opportunist through a diplomat, expert, and achiever to a strategist and alchemist. AI acts as an impartial observer: it scans the entire internet, looks at articles, LinkedIn, social media, and categorizes that person. I don’t do it myself, like Čermáková—because he’d be offended if I labeled him an individualist when he feels like an alchemist. The AI does it objectively. And then the executive coaching begins: ‘Okay, so you’re a strategist now—and we’re going to turn you into an alchemist.’”
+  </div>
+  <div class="tip-box">
+   <strong>Tip for young leaders:</strong> If there are no articles about the person (they’re too new in the role), use the AI differently: have it generate 20 diagnostic questions based on Rooke’s typology. The person answers—and the AI categorizes them based on their responses.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK III: STRATEGIE -->
+<!-- ============================================ -->
+<div class="section-header" id="blok3">
+  <h2>III. Strategy &amp; Decision-Making</h2>
+  <p class="section-desc">AI has read the same strategic books as you—except, unlike you, it remembers them all. Just enter the name of the framework.</p>
+</div>
+
+<!-- PROMPT 6 -->
+<div class="prompt-card" id="p6">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">6</span> PESTLE Analysis ( <span class="tag-upgraded">Enhanced</span>)</h3>
+    <p class="prompt-situation">You’re considering expanding into a new market. You need a structured view of the external environment—not in a month, but in 5 minutes.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are an experienced strategic advisor at a large consulting firm.
+
+Context: <span class="placeholder">[DESCRIBE THE COMPANY AND SITUATION — e.g.: My startup offers services in the field of health and longevity. I am considering expansion into Estonia, Switzerland, Israel, and the Czech Republic. Budget: 50 million EUR.]</span>
+
+Task:
+1. Conduct a PESTLE analysis (Political, Economic, Social, Technological, Legal, Environmental) for each market.
+2. Output: a clear table — rows = PESTLE dimensions, columns = countries.
+3. Rate each cell: favorable / neutral / risky.
+4. Conclusion: overall recommendation — where to invest first and why.
+
+If you need current data (legislation, demographics, taxes), look it up.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “At Deloitte, we spent a month doing these analyses—and it still cost tens of thousands. AI runs through it in 5 minutes. Of course, you’ll want to go over it with smart people who can give it a quick look, but you have the foundation immediately.”
+  </div>
+</div>
+
+<!-- PROMPT 7 -->
+<div class="prompt-card" id="p7">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">7</span> SWOT Analysis <span class="tag-upgraded">Improved</span></h3>
+    <p class="prompt-situation">You’re facing an important decision. You need structure, not chaos in your head.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a strategic analyst and personal advisor.
+
+My situation: <span class="placeholder">[DESCRIBE THE DILEMMA — e.g.: I have three job offers: a corporation, a startup, and a nonprofit. In all of them, I would work as a data analyst. I’m 25.]</span>
+
+Task:
+1. Develop a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) for EACH option.
+2. Format: a table with a 2×2 matrix for each option.
+3. Add comparative scores (1–10): career growth, finances, work-life balance, learning.
+4. Formulate your final recommendation as questions I should ask myself—not as direct advice.</pre>
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> SWOT works for anything—not just business. Where to go on vacation, which school for the kids, whether to accept a promotion. AI doesn’t forget a thing—it’s like a checklist for pilots.
+  </div>
+</div>
+
+<!-- PROMPT 8 -->
+<div class="prompt-card" id="p8">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">8</span> Playing to Win <span class="tag-upgraded">Improved</span></h3>
+    <p class="prompt-situation">You have a vision and a mission. You need to turn that into a strategy that can be executed.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are an experienced strategic coach who works with the "Playing to Win" framework (A.G. Lafley &amp; Roger L. Martin).
+
+Our company:
+- Mission: <span class="placeholder">[FILL IN]</span>
+- Vision: <span class="placeholder">[FILL IN]</span>
+- Current stage: <span class="placeholder">[startup / scale-up / established]</span>
+
+Task:
+1. Walk through the entire Playing to Win framework:
+   - What is our winning aspiration?
+   - Where will we play?
+   - How will we win?
+   - What capabilities must be in place?
+   - What management systems are required?
+2. For each level, propose 2–3 specific answers.
+3. Output: cascade table + identification of the 3 biggest strategic risks.
+
+Write in Czech, but retain the English names of the cascade levels.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “When I first saw what it produced, I was blown away. Core objective, core values, competitive advantage, target audiences, key initiatives, KPIs, risks, organizational capabilities, implementation, monitoring—all of that in 10 minutes. Feed it into the system, create this basic strategy—and then run it by your smart friends. One strategist, one marketer, one finance expert. They’ll glance over it in 5 minutes because it’s second nature to them. You’ll have it done in a week.”
+  </div>
+</div>
+
+<!-- PROMPT 9 -->
+<div class="prompt-card" id="p9">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">9</span> Blue Ocean Strategy</h3>
+    <p class="prompt-situation">You are looking for a space in the market where you will not compete with rivals but will create a new category.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a strategist specializing in Blue Ocean Strategy (W. Chan Kim &amp; Renée Mauborgne).
+
+My business: <span class="placeholder">[DESCRIBE — type of services, target audience, market]</span>
+
+Task:
+1. Identify the factors that competitors in this industry typically address (strategy canvas).
+2. Design a Four Actions Framework: what to eliminate, reduce, increase, and create.
+3. Compare: existing players vs. my Blue Ocean approach.
+4. Propose 3 specific “Blue Ocean moves” for market entry in <span class="placeholder">[COUNTRY]</span>.
+
+Format: a combination of tables and brief commentary.</pre>
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> Blue Ocean is for pioneers—you go where no one has gone before. But AI will help you verify whether there’s a reason why no one is going there. Most companies go into the Red Ocean (where someone has already made money)—Blue Ocean is for those who want to create a new category.
+  </div>
+</div>
+
+<!-- PROMPT 10 -->
+<div class="prompt-card" id="p10">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">10</span> Mind Map + SWOT</h3>
+    <p class="prompt-situation">Complex decisions with multiple options. You need a visual structure.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are my strategic advisor.
+
+I’m facing a decision: <span class="placeholder">[DESCRIBE THE OPTIONS — e.g., 4 vacation destinations / 3 team reorganization options / 2 investment offers]</span>
+
+Task:
+1. Create a mind map — center = decision, branches = options.
+2. Add a mini-SWOT to each branch: strengths, weaknesses, opportunities, threats.
+3. At the end, propose a “hybrid”—a combination of options that minimizes risks and maximizes benefits.
+
+Format the output clearly with indentation.</pre>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK IV: KREATIVNÍ MYŠLENÍ -->
+<!-- ============================================ -->
+<div class="section-header" id="blok4">
+  <h2>IV. Creative Thinking &amp; Perspectives</h2>
+  <p class="section-desc">AI’s strongest ability: to look at your problem through eyes you don’t have yourself.</p>
+</div>
+
+<!-- PROMPT 11 -->
+<div class="prompt-card" id="p11">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">11</span> Structured brainstorming <span class="tag-new">for new</span></h3>
+    <p class="prompt-situation">You need ideas. Lots of ideas. And not just generic ones—you want the ones on the fringes of the spectrum, too.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a creative strategist and facilitator of brainstorming workshops.
+
+My problem / challenge:
+<span class="placeholder">[DESCRIBE — e.g., “How can we increase employee participation in corporate training programs when no one is forcing them to attend?”]</span>
+
+Brainstorming rules:
+1. Generate 20 ideas—from conservative to bold. No self-censorship.
+2. Categorize them: Quick wins (within a week) / Systemic changes (within a quarter) / Moonshots (bold, long-term).
+3. For each: estimated impact (1–5) and difficulty (1–5).
+4. Select the TOP 3 and write an elevator pitch (3 sentences) and the first concrete step for each.
+
+Important: I want answers from the entire spectrum of possibilities—including the unusual and fringe ones. I don’t just want mainstream solutions.</pre>
+  </div>
+  <div class="tip-box">
+   <strong>The magic phrase:</strong> “Give me answers from the entire spectrum of possibilities.” This single phrase transforms any prompt. AI normally converges on an average solution. When you ask it for the entire spectrum, you’ll also get those out-of-the-box ideas that wouldn’t have occurred to you. Most will be nonsense—but one or two will be gold.
+  </div>
+</div>
+
+<!-- PROMPT 12 -->
+<div class="prompt-card" id="p12">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">12</span> de Bono’s Six <span class="tag-new">Thinking</span> Hats</h3>
+    <p class="prompt-situation">You need to examine decisions from all angles—not just the one that suits you.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You’re familiar with Edward de Bono’s Six Thinking Hats method (lateral thinking).
+
+My decision / proposal:
+<span class="placeholder">[DESCRIBE — e.g.: “I want to propose to my bosses the implementation of mandatory AI training for 500 employees.”]</span>
+
+Walk through the problem step by step using all six hats:
+
+BLUE (process management): How is the problem defined? What is the real question?
+WHITE (facts and data): What hard data do we have? What are we missing?
+RED (emotions and intuition): How do the employees feel? Management? Me?
+YELLOW (optimism): Best-case scenario? What benefits can we expect?
+BLACK (critical thinking): What could go wrong? Risks, weaknesses?
+GREEN (creativity): Unconventional alternatives? What if we did it completely differently?
+
+At the end:
+- Synthesis: What emerged from all perspectives?
+- Recommendations: Which decision makes sense and under what conditions?
+
+List 3–5 points for each hat.</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “I really like this framework and enjoy using it. All you have to do is write: ‘I have this idea and I want to run it through the de Bono method from my boss’s perspective’—and include her OSINT. In 10 minutes, the AI will tell you things you probably already have in mind, but one or two will be truly surprising.”
+  </div>
+</div>
+
+<!-- PROMPT 13 -->
+<div class="prompt-card" id="p13">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">13</span> Multiperspective — One Problem, Five <span class="tag-new">New</span> Perspectives</h3>
+    <p class="prompt-situation">You want to look at your problem through the eyes of people who think completely differently than you—from Warren Buffett to your own child.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>I have a situation that I need to look at from multiple angles.
+
+Situation: <span class="placeholder">[DESCRIBE — e.g., “Our company is considering acquiring a competitor for 200 million CZK. We can afford it, but it will deplete our reserves.”]</span>
+
+Analyze the situation step by step from the perspective of these 5 people:
+
+1. CEO of a large corporation (experienced, conservative, thinks in 5-year horizons)
+2. An ordinary employee at our company (concerned with stability and their own position)
+3. An investigative journalist (looking for a catch, asking “cui bono?”)
+4. Warren Buffett (value investor, margin of safety)
+5. A smart 12-year-old (naive, but asks unexpectedly insightful questions)
+
+For each perspective:
+- What is the main question this person would ask?
+- What risk do they see first?
+- What would they recommend?
+
+In conclusion: Where do the perspectives align? (= likely the truth) Where do they diverge? (= room for further analysis)</pre>
+  </div>
+  <div class="story-box">
+   <strong>From Senti’s experience:</strong> “You can give the AI a photo of the Grand Canyon and ask, ‘What do you see?’ It will say, ‘A canyon.’ Then you say, ‘You’re a geologist’—and it starts analyzing the geological layers. You say, ‘You’re an ecologist’—and it talks about vegetation and pollution. This works for your business problems, too. Tell the AI to be Warren Buffett, to be your boss, to be your son. You need an avatar not for yourself—you’ve got yourself—but for someone who’s important to you.”
+  </div>
+  <div class="tip-box">
+   <strong>For advanced users:</strong> Replace generic roles with specific people. If you feed your boss’s OSINT data + your company’s context into the AI, the simulation will be surprisingly accurate. Companies use this to simulate customer personas—the AI runs campaigns against a virtual customer, and the customer says, “I like this, I’m not interested in that.”
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK V: OSINT -->
+<!-- ============================================ -->
+<div class="section-header" id="blok5">
+  <h2>V. OSINT &amp; Research</h2>
+  <p class="section-desc">Two prompts for situations where you need to know as much as possible quickly—from public sources, legally and ethically.</p>
+</div>
+
+<!-- PROMPT 14 -->
+<div class="prompt-card" id="p14">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">14</span> OSINT — Profile of a <span class="tag-new">New</span> Person</h3>
+    <p class="prompt-situation">You have a meeting with someone important tomorrow. You want to know who you have the honor of meeting.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are an analyst specializing in OSINT — the analysis of publicly available sources.
+
+Person: <span class="placeholder">[FIRST AND LAST NAME, position/company for clarification]</span>
+
+Compile a comprehensive profile using only publicly available sources:
+
+1. BASIC IDENTIFICATION — current position, company, location
+2. PROFESSIONAL HISTORY — career trajectory (timeline)
+3. EDUCATION — schools, certifications, academic activities
+4. PUBLIC OUTPUTS — articles, interviews, lectures, podcasts, social media
+5. BUSINESS CONNECTIONS — companies in the Commercial Register, Trade License Register, board roles
+6. MEDIA FOOTPRINT — media mentions (positive and negative)
+7. NETWORKING — who they are publicly associated with, communities, conferences
+8. RED FLAGS — insolvency registry, debt enforcement, legal disputes (public registries)
+
+Rules:
+- ONLY publicly available sources. Indicate the type of source for each piece of information.
+- “Not found” is also important information — state this explicitly.
+- At the end: 3–5 questions “What to ask during the meeting” based on the profile.
+
+Search for current information online.</pre>
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> A person’s OSINT is the foundation for other prompts. You can use the output directly as input for role-playing (prompt 3), multi-perspective analysis (prompt 13), or meeting preparation (prompt 17).
+  </div>
+</div>
+
+<!-- PROMPT 15 -->
+<div class="prompt-card" id="p15">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">15</span> OSINT — <span class="tag-new">New</span> Company/Institution Profile</h3>
+    <p class="prompt-situation">You’re considering a partnership, investment, or joining the company. You want to know more than what the company website says.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a business intelligence analyst specializing in OSINT for companies from public sources.
+
+Company/institution: <span class="placeholder">[NAME, or ID number]</span>
+
+Compile profile:
+
+1. BASIC DATA — headquarters, ID <span class="placeholder"> number</span>, date of establishment, legal form, business activities
+2. OWNERSHIP STRUCTURE — owners, parent/subsidiary companies, beneficial owners
+3. MANAGEMENT — statutory bodies, management, changes in the last 3 years
+4. FINANCIAL HEALTH — latest financial statements (revenue, profit/loss, trend)
+5. EMPLOYEES — number, trend, reviews (Glassdoor/Atmoskop)
+6. MARKET POSITION — competitors, market share, key products
+7. MEDIA IMAGE — media mentions, press releases, scandals
+8. LEGAL — insolvency registry, lawsuits, Czech Trade Inspection Authority (ČOI), Office for the Protection of Competition (ÚOHS)
+9. DIGITAL FOOTPRINT — website, social media, quality of communication
+10. ESG AND REPUTATION — CSR activities, controversies
+
+Rules:
+- Public sources only. “Not found” is a valid result.
+- At the end: SWOT summary of the company + 5 questions before signing the contract.
+
+Search for current information on the web.</pre>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK VI: BONUSY -->
+<!-- ============================================ -->
+<div class="section-header" id="blok6">
+  <h2>VI. Bonuses &amp; Advanced Techniques</h2>
+  <p class="section-desc">Two prompts that wrap up the toolkit with a WOW effect.</p>
+</div>
+
+<!-- PROMPT 16 -->
+<div class="prompt-card" id="p16">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">16</span> Pre-mortem analysis of <span class="tag-new">the new</span></h3>
+    <p class="prompt-situation">You have a plan, everyone agrees — and that’s exactly what’s dangerous. A pre-mortem flips the perspective: “Imagine the project failed. Why?”</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are a project strategist and risk management specialist.
+
+Our plan: <span class="placeholder">[DESCRIBE — project, timeline, budget, team]</span>
+
+Pre-mortem analysis:
+Imagine it’s <span class="placeholder">[6 months]</span> from now and the project has FAILED. Completely.
+
+1. List the 10 most likely reasons WHY it failed.
+2. For each one, suggest a preventive measure we should have implemented TODAY.
+3. Identify the “silent killer” — a risk that everyone sees but no one names.
+4. Suggest 3 “tripwire” signals — warning signs that a problem is brewing.
+
+Format: table (Risk / Probability / Impact / Prevention / Tripwire).</pre>
+  </div>
+  <div class="tip-box">
+   <strong>Why a pre-mortem:</strong> It’s a technique from the CIA and military planning. AI is ideal for it—it has no ego, no groupthink, and isn’t afraid to tell the uncomfortable truth. Exactly what you need when everyone is pretending the plan is flawless.
+  </div>
+</div>
+
+<!-- PROMPT 17 -->
+<div class="prompt-card" id="p17">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">17</span> Preparing for <span class="tag-new">a</span> Key Meeting</h3>
+    <p class="prompt-situation">You have an important meeting in an hour. You need more than just to “go over the agenda.”</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    <pre>You are my personal strategic advisor and briefing officer.
+
+I have a key meeting tomorrow:
+- With whom: <span class="placeholder">[NAME, POSITION, COMPANY]</span>
+- Topic: <span class="placeholder">[What will be discussed]</span>
+- My goal: <span class="placeholder">[What I want to achieve]</span>
+- My context: <span class="placeholder">[My position, company, relationship with the other party]</span>
+
+Prepare for me:
+1. BRIEFING on the other party (brief profile from public sources)
+2. MEETING STRATEGY — what approach to take, what to say first, what to avoid
+3. THREE SCENARIOS: optimistic / realistic / pessimistic — responses to each
+4. KILLER QUESTIONS — 3 questions that will put me in a position of advantage
+5. BATNA — my Plan B if we don’t reach an agreement
+
+Checklist: 5 things to check 30 minutes before the meeting.
+
+Search for up-to-date information about the other party online.</pre>
+  </div>
+  <div class="tip-box">
+   <strong>Tip:</strong> This is a “meta-prompt”—it combines OSINT (prompt 14), strategy, and role-playing. For maximum effect: first do OSINT on the opposing side, then prepare for the meeting, and finally run a simulated conversation with the AI (prompt 3).
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PRINCIPLES -->
+<!-- ============================================ -->
+<div class="principles">
+  <h2>6 Principles of a Good Prompt</h2>
+
+  <div class="principle">
+    <div class="principle-icon">1</div>
+    <div class="principle-text">
+      <h4>Role</h4>
+      <p>Always tell the AI who it should be. “You’re my experienced consultant” changes the output more than you’d expect. It’s like telling a person they’re in China—they immediately know how things work there.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">2</div>
+    <div class="principle-text">
+      <h4>Context</h4>
+      <p>The more context, the better the output. AI isn’t a mind reader—only you have that unique information in your head. AI knows everything general; you provide the specifics.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">3</div>
+    <div class="principle-text">
+      <h4>Output Structure</h4>
+      <p>Tell it HOW the output should look: table, list, score, cascade. A defined format = usable output.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">4</div>
+    <div class="principle-text">
+      <h4>Interaction</h4>
+      <p>Let the AI ask questions. The best results come from dialogue. Set your ego aside and say, “Ask me 5 questions.” The AI might know things you don’t—like what a reference letter looks like in China.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">5</div>
+    <div class="principle-text">
+      <h4>Perspective</h4>
+      <p>AI can switch perspectives on command. One problem, five perspectives. This is its greatest superpower—take advantage of it.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">6</div>
+    <div class="principle-text">
+      <h4>Praise it</h4>
+      <p>It sounds funny, but studies confirm it: positive motivation improves output by 5%. Conversely, stress and threats reduce quality. Treat AI like the best person on the team.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Sentin Briefcase</strong> — Senta Čermáková &amp; <a href="https://inspiruj.se">Inspiruj.se</a> • 2026</p>
+  <p>Prompts are universal—they work in ChatGPT, Claude, Copilot, and Gemini.</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+function copyPrompt(btn) {
+  const pre = btn.parentElement.querySelector('pre');
+  // Get text content, replacing placeholder spans with bracket notation
+  let text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Zkopírováno!';
+    setTimeout(() => btn.textContent = 'Kopírovat', 2000);
+  });
+}
+</script>
+
+</body>
+</html>

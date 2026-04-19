@@ -389,9 +389,55 @@
     .prompt-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
     .copy-btn { display: none; }
   }
+
+  /* Přepínač jazyka */
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .lang-switch a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-switch a.active {
+    background: white;
+    color: var(--accent-dark);
+  }
+  .lang-switch a:hover:not(.active) {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+  @media (max-width: 640px) {
+    .lang-switch { top: 12px; right: 12px; font-size: 12px; }
+    .lang-switch a { padding: 5px 10px; }
+  }
+  @media print {
+    .lang-switch { display: none; }
+  }
 </style>
 </head>
 <body>
+
+<!-- Přepínač jazyka -->
+<nav class="lang-switch" aria-label="Language">
+  <a href="/" class="active">CZ</a>
+  <a href="/en.html">EN</a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
