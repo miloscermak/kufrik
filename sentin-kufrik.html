@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentin kufřík — Příručka AI promptů pro manažery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --accent: #6B4C9A;
+    --accent-light: #E8E0F0;
+    --accent-dark: #4A3470;
+    --border: #E5E5E5;
+    --prompt-bg: #F7F5FA;
+    --prompt-border: #D4C8E2;
+    --tip-bg: #FFF8E7;
+    --tip-border: #F0D060;
+    --story-bg: #F0F7FF;
+    --story-border: #A0C4E8;
+    --section-hr: #D4C8E2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #6B4C9A 0%, #4A3470 50%, #2D1F45 100%);
+    color: white;
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .hero .author {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    position: relative;
+  }
+
+  /* NAVIGATION */
+  .toc {
+    max-width: 800px;
+    margin: -30px auto 40px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px;
+    position: relative;
+    z-index: 2;
+  }
+  .toc h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .toc-item:hover { background: var(--accent-light); }
+  .toc-num {
+    background: var(--accent);
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    margin: 60px 0 32px;
+    padding: 24px 0;
+    border-top: 3px solid var(--section-hr);
+  }
+  .section-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin-bottom: 6px;
+  }
+  .section-header .section-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  /* PROMPT CARDS */
+  .prompt-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .prompt-card-header {
+    padding: 24px 28px 16px;
+  }
+  .prompt-card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .prompt-number {
+    background: var(--accent);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .prompt-situation {
+    margin: 8px 0 0 42px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* PROMPT BOX */
+  .prompt-box {
+    margin: 16px 20px 20px;
+    background: var(--prompt-bg);
+    border: 1px solid var(--prompt-border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    position: relative;
+  }
+  .prompt-box::before {
+    content: 'PROMPT';
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+  .prompt-box pre {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text);
+  }
+  .prompt-box .placeholder {
+    background: var(--accent-light);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--accent-dark);
+  }
+
+  /* COPY BUTTON */
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .copy-btn:hover { opacity: 1; }
+
+  /* TIP BOX */
+  .tip-box {
+    margin: 0 20px 20px;
+    background: var(--tip-bg);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+  }
+  .tip-box strong {
+    color: #8B6914;
+  }
+
+  /* STORY BOX */
+  .story-box {
+    margin: 0 20px 20px;
+    background: var(--story-bg);
+    border-left: 4px solid var(--story-border);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .story-box strong {
+    color: #2A6496;
+  }
+  .story-box em {
+    color: #555;
+  }
+
+  /* INTRO SECTION */
+  .intro-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    padding: 32px 28px;
+    margin-bottom: 32px;
+  }
+  .intro-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent-dark);
+  }
+  .intro-card p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* PRINCIPLES */
+  .principles {
+    background: linear-gradient(135deg, #6B4C9A 0%, #4A3470 100%);
+    border-radius: 16px;
+    padding: 36px 32px;
+    color: white;
+    margin: 48px 0;
+  }
+  .principles h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .principle {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .principle-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .principle-text h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .principle-text p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* NEW TAG */
+  .tag-new {
+    background: #28A745;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+  .tag-upgraded {
+    background: #F59E0B;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 40px; }
+    .toc { margin: -20px 16px 32px; padding: 24px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 16px 60px; }
+    .prompt-box { margin: 12px 16px 16px; padding: 16px; }
+    .tip-box, .story-box { margin: 0 16px 16px; }
+    .prompt-card-header { padding: 20px 20px 12px; }
+    .prompt-situation { margin-left: 0; }
+  }
+
+  @media print {
+    .hero { padding: 40px 24px 30px; }
+    .prompt-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .copy-btn { display: none; }
+  }
+
+  /* Přepínač jazyka */
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .lang-switch a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-switch a.active {
+    background: white;
+    color: var(--accent-dark);
+  }
+  .lang-switch a:hover:not(.active) {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+  @media (max-width: 640px) {
+    .lang-switch { top: 12px; right: 12px; font-size: 12px; }
+    .lang-switch a { padding: 5px 10px; }
+  }
+  @media print {
+    .lang-switch { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Přepínač jazyka -->
+<nav class="lang-switch" aria-label="Language">
+  <a href="/sentin-kufrik.html" class="active">CZ</a>
+  <a href="/sentin-kufrik-en.html">EN</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Sentin kufřík</h1>
+  <p class="subtitle">17 AI promptů, které opravdu používám. Žádná teorie, žádný hype &mdash; jen nástroje, které fungují.</p>
+  <p class="author">Senta Čermáková &bull; ex-Deloitte, ex-korporát &bull; Inspiruj.se &bull; 2026</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>Obsah</h2>
+  <div class="toc-grid">
+    <a href="#audit" class="toc-item"><span class="toc-num">0</span> Osobní AI audit</a>
+    <a href="#p1" class="toc-item"><span class="toc-num">1</span> Referenční dopis</a>
+    <a href="#p2" class="toc-item"><span class="toc-num">2</span> Performance Review</a>
+    <a href="#p3" class="toc-item"><span class="toc-num">3</span> Těžké konverzace</a>
+    <a href="#p4" class="toc-item"><span class="toc-num">4</span> Executive sparring</a>
+    <a href="#p5" class="toc-item"><span class="toc-num">5</span> Rooke leadership</a>
+    <a href="#p6" class="toc-item"><span class="toc-num">6</span> PESTLE</a>
+    <a href="#p7" class="toc-item"><span class="toc-num">7</span> SWOT</a>
+    <a href="#p8" class="toc-item"><span class="toc-num">8</span> Playing to Win</a>
+    <a href="#p9" class="toc-item"><span class="toc-num">9</span> Blue Ocean</a>
+    <a href="#p10" class="toc-item"><span class="toc-num">10</span> Myšlenková mapa</a>
+    <a href="#p11" class="toc-item"><span class="toc-num">11</span> Brainstorming</a>
+    <a href="#p12" class="toc-item"><span class="toc-num">12</span> Šest klobouků</a>
+    <a href="#p13" class="toc-item"><span class="toc-num">13</span> Multiperspektiva</a>
+    <a href="#p14" class="toc-item"><span class="toc-num">14</span> OSINT osoby</a>
+    <a href="#p15" class="toc-item"><span class="toc-num">15</span> OSINT firmy</a>
+    <a href="#p16" class="toc-item"><span class="toc-num">16</span> Pre-mortem</a>
+    <a href="#p17" class="toc-item"><span class="toc-num">17</span> Příprava na jednání</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- INTRO: PERSONAL AI AUDIT -->
+<div class="intro-card" id="audit">
+  <h3>Než otevřete kufřík: Osobní AI audit</h3>
+  <p>Než se pustíte do promptů, udělejte si jednu věc. Zamyslete se, co jste dělali poslední týden. Rozdělte si činnosti na dvě hromádky.</p>
+  <p><strong>První hromádka:</strong> to, co vás baví, co je vaše identita, váš purpose. To si nechte. To umělé inteligenci nedáte, ani kdyby to uměla lépe &mdash; protože byste si tím zlikvidovali svůj pracovní smysl.</p>
+  <p><strong>Druhá hromádka:</strong> to, co byste stejně poslali stážistovi, asistentce, kolegovi. Tohle je přesně ten prostor pro AI.</p>
+  <p>A pak je tu třetí krok, na který lidé zapomínají: <strong>naučte AI svůj styl.</strong> Shromážděte texty, které jste sami napsali &mdash; reporty, dopisy, e-maily, prezentace. Dejte je AI jako vzor. Říká se tomu <em>style, tone &amp; voice</em>. AI má obrovskou schopnost napodobovat to, do čeho jste vy investovali roky praxe.</p>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK I: LIDÉ & HR -->
+<!-- ============================================ -->
+<div class="section-header" id="blok1">
+  <h2>I. Lidé &amp; HR</h2>
+  <p class="section-desc">Prompty pro každého, kdo vede lidi &mdash; od prvního stážisty po celý region.</p>
+</div>
+
+<!-- PROMPT 1 -->
+<div class="prompt-card" id="p1">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">1</span> Referenční dopis <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Potřebujete napsat referenční dopis pro kolegu nebo stážistu. Máte v hlavě, co dělal &mdash; ale formulovat to na papír trvá věčnost.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený HR profesionál a ghostwriter specializovaný na profesní referenční dopisy.
+
+Potřebuji napsat referenční dopis pro <span class="placeholder">[JMÉNO]</span>, který/á pracoval/a v mém týmu jako <span class="placeholder">[POZICE]</span> po dobu <span class="placeholder">[OBDOBÍ]</span>.
+
+Zde jsou projekty, na kterých se podílel/a (hodnotím 1–5, kde 5 je výborně):
+1. <span class="placeholder">[Projekt A]</span> — hodnocení: <span class="placeholder">[X/5]</span>
+2. <span class="placeholder">[Projekt B]</span> — hodnocení: <span class="placeholder">[X/5]</span>
+3. <span class="placeholder">[Projekt C]</span> — hodnocení: <span class="placeholder">[X/5]</span>
+
+Než napíšeš dopis, polož mi 5 krátkých otázek, abys pochopil/a:
+- silné stránky této osoby
+- oblasti, kde se nejvíc posunula
+- jak zapadala do týmu
+- co bych jí přál/a do budoucna
+
+Na základě mých odpovědí napiš referenční dopis v profesionálním, ale osobním tónu. Dopis by měl mít max 1 stranu A4.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Za sedm a půl roku v Deloitte mi prošlo 250 mladých lidí od 15 do 25 let &mdash; géniů a génijek. Každý referenční dopis jsem psala hodinu, někdy dvě. Pak přišla AI a já zjistila, že stačí zadat tři projekty, ohodnotit je &mdash; a nechat AI, ať vytáhne ty unikátní talenty. Vypadne mi to za dvě minuty a je to velmi podobné tomu, co bych napsala já."
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Přidejte kontext, kam dotyčný míří. Řekněte AI třeba: „Jde studovat do Finska, napiš to startupově a přátelsky." Jedna věta změní celý tón dopisu.
+  </div>
+</div>
+
+<!-- PROMPT 2 -->
+<div class="prompt-card" id="p2">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">2</span> Performance Review <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Blíží se roční hodnocení. Máte projekty v hlavě, ale potřebujete z nich vytvořit vyvážený, férový a konstruktivní review.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený HR konzultant se specializací na talent management a performance review procesy ve velkých firmách.
+
+Potřebuji napsat roční performance review pro člena svého týmu.
+
+Zde jsou klíčové projekty, na kterých pracoval/a (hodnocení A–E, kde A je výborně):
+1. <span class="placeholder">[Projekt]</span> — hodnocení: <span class="placeholder">[X]</span>
+2. <span class="placeholder">[Projekt]</span> — hodnocení: <span class="placeholder">[X]</span>
+3. <span class="placeholder">[Projekt]</span> — hodnocení: <span class="placeholder">[X]</span>
+
+Struktura review:
+- Celkové shrnutí výkonu (3–4 věty)
+- Silné stránky s konkrétními příklady
+- Oblasti pro rozvoj s návrhy, JAK se zlepšit (ne jen CO zlepšit)
+- Doporučení pro další období (cíle, rozvojové aktivity, certifikace)
+
+Než napíšeš review, polož mi 3 doplňující otázky zaměřené na:
+- spolupráci s ostatními členy týmu
+- iniciativu a proaktivitu
+- situaci, kde mě překvapil/a (pozitivně i negativně)
+
+Piš vyváženě — i výborný zaměstnanec má kam růst, i slabší má silné stránky.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Ten čas, který vám AI ušetří na formulování, věnujte do lidí. Dejte si s nimi procházku někde mimo kancelář. Dvě hodiny, přátelské prostředí, kde se vám otevřou. Rozhovory nenahrávejte &mdash; to musí být bezpečné prostředí. AI pak použijte k tomu, aby se do HR dostalo to podstatné: náměty na zlepšení, milestony, plán certifikací. Bez námětů na zlepšení je review statická záležitost &mdash; chybí tam růstová etapa."
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Čím seniortnější člověk, tím víc projektů a otázek do promptu dejte. Junior = 3 projekty. Senior = 5–10 projektů + 5 otázek. O seniory přijdete těžko a za velké peníze &mdash; na ty si dejte záležet.
+  </div>
+</div>
+
+<!-- PROMPT 3 -->
+<div class="prompt-card" id="p3">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">3</span> Role-playing: Těžké manažerské konverzace <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Před vámi je nepříjemný rozhovor. Potřebujete si ho „nanečisto" projít &mdash; jako pilot v simulátoru.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený executive coach specializovaný na difficult conversations ve firemním prostředí.
+
+Chci si s tebou nanečisto zahrát těžký rozhovor. Ty budeš hrát roli:
+
+A) Zaměstnance, kterému musím oznámit, že neprojde zkušební dobou
+B) Kolegy, který systematicky nedodržuje deadliny a ovlivňuje celý tým
+C) Podřízeného, který žádá o povýšení, ale ještě na něj nemá
+D) Člena týmu, který šíří negativní atmosféru
+
+Vybírám variantu: <span class="placeholder">[A/B/C/D]</span>
+
+Můj kontext: <span class="placeholder">[krátký popis — pozice, firma, velikost týmu]</span>
+
+Pravidla hry:
+1. Hraj svou roli realisticky — reaguj emotivně, kladej nepříjemné otázky, braň se.
+2. Po každé mojí replice mi dej krátkou zpětnou vazbu v závorce: co jsem řekl/a dobře, co bych mohl/a říct lépe.
+3. Na konci rozhovoru mi dej celkové hodnocení: co fungovalo, kde jsem ztratil/a kontrolu, a 3 konkrétní tipy pro reálný rozhovor.
+
+Začni tím, že se mě zeptáš na kontext situace, a pak zahájíme.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Kamarád šel do DVTV a hrozně se bál Veselovského. Vzali jsme 10 přepisů jeho rozhovorů, dali je do AI a řekli: ‚Nastuduji si tohoto novináře a vymysli 50 nejméně příjemných otázek, které může položit.' Výsledek byl naprosto perfektní. Kamarád to pak ukázal samotnému Veselovskému a ten řekl: ‚Tohle si musím udělat, abych dával lepší otázky.' Role-playing s AI funguje &mdash; ať už se připravujete na těžký rozhovor se zaměstnancem, nebo na tiskovou konferenci."
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Můžete AI nahrát i profil protistrany &mdash; LinkedIn, články, veřejné výstupy. Čím víc kontextu, tím realističtější simulace. Funguje to i pro přípravu na board, investory nebo novináře.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK II: LEADERSHIP & COACHING -->
+<!-- ============================================ -->
+<div class="section-header" id="blok2">
+  <h2>II. Leadership &amp; koučink</h2>
+  <p class="section-desc">Od osobního sparingu po analytické frameworky pro pochopení vlastního stylu vedení.</p>
+</div>
+
+<!-- PROMPT 4 -->
+<div class="prompt-card" id="p4">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">4</span> Executive sparring partner <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Máte novou roli, nový tým, novou zodpovědnost. Potřebujete strategický plán, ne motivační citáty.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi celosvětově uznávaný executive coach s 20letou praxí v poradenství pro C-level management.
+
+Moje situace:
+<span class="placeholder">[POPIŠTE — např.: Jsem marketingovou manažerkou v českém startupu. Povýšili mě a nově zodpovídám za marketing v 18 zemích střední Evropy. Marketingoví manažeři v těchto zemích mi ale nereportují — reportují svým country manažerům.]</span>
+
+Co potřebuji:
+1. Analýzu mé pozice — jaké mám páky, co je mimo mou kontrolu
+2. Akční plán na první 3 měsíce (30-60-90 formát)
+3. Formát: tabulka CO / KDO / KDY / PROČ / RIZIKO
+4. Ke každému kroku uveď i potenciální odpor a jak ho překonat
+
+Než začneš, polož mi 3 otázky, abys pochopil/a firemní kulturu, moje zdroje a hlavní překážky.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Přišla za mnou holčina, kterou jsem mentorovala. Povýšili ji z českého trhu na 18 zemí a nikdo jí nic neřekl. ‚Co mám dělat?' Řekla jsem jí pár věcí &mdash; a pak jsem šla domů a napsali jsme tenhle prompt. Protože takhle se to dá udělat systematicky. Ty první tři měsíce jsou vždycky klíčové &mdash; za ty tři měsíce velmi dobře víte, jestli to byla správná volba."
+  </div>
+</div>
+
+<!-- PROMPT 5 -->
+<div class="prompt-card" id="p5">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">5</span> 7 fází leadershipu (Rooke &amp; Torbert) <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Chcete pochopit svůj styl vedení &mdash; nebo styl někoho, s kým spolupracujete &mdash; skrze akademický framework z Harvardu.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Znáš framework "Seven Types of Transformational Leadership" (David Rooke &amp; William R. Torbert, Harvard Business Review).
+
+Úkol: Analyzuj styl vedení osoby <span class="placeholder">[JMÉNO NEBO POPIS]</span> a urči, do které z kategorií (Opportunist → Diplomat → Expert → Achiever → Individualist → Strategist → Alchemist) patří v různých fázích kariéry.
+
+Výstup ve formě tabulky:
+| Období | Fáze kariéry | Typ leadershipu | Klíčové chování | Jak se projevoval |
+
+Na konci přidej:
+- Celkový vzorec vývoje (jak se styl měnil a proč)
+- Doporučení: co by tato osoba měla rozvíjet, aby se posunula na další úroveň
+
+Pokud potřebuješ aktuální informace, vyhledej je na webu.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Každý lídr si prochází touhle hierarchií &mdash; od opatrného oportunisty přes diplomata, experta, achievera až po stratéga a alchymistu. AI udělá nestranného pozorovatele: projede veškerý internet, podívá se na články, LinkedIn, sociální média a toho člověka zařadí. Nedělám to já jako Čermáková &mdash; protože by se urazil, kdybych ho dala do individualisty a on se cítí jako alchymista. Udělá to objektivně ta AI. A pak ten executive coaching začíná: ‚Dobře, tak ty seš teď stratég — a budeme z tebe dělat alchymistu.'"
+  </div>
+  <div class="tip-box">
+    <strong>Tip pro mladé lídry:</strong> Pokud o člověku nevycházejí články (je příliš čerstvý v roli), použijte AI jinak: nechte ji vygenerovat 20 diagnostických otázek podle Rookeho typologie. Dotyčný odpoví &mdash; a AI ho zařadí na základě odpovědí.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK III: STRATEGIE -->
+<!-- ============================================ -->
+<div class="section-header" id="blok3">
+  <h2>III. Strategie &amp; rozhodování</h2>
+  <p class="section-desc">AI přečetla stejné strategické knížky jako vy &mdash; akorát si je na rozdíl od vás všechny pamatuje. Stačí zadat jméno frameworku.</p>
+</div>
+
+<!-- PROMPT 6 -->
+<div class="prompt-card" id="p6">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">6</span> PESTLE analýza <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Zvažujete expanzi na nový trh. Potřebujete strukturovaný pohled na vnější prostředí &mdash; a ne za měsíc, ale za 5 minut.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený strategický poradce z velké konzultační firmy.
+
+Kontext: <span class="placeholder">[POPIŠTE FIRMU A SITUACI — např.: Můj startup nabízí služby v oblasti zdravotní dlouhověkosti. Zvažuji expanzi: Estonsko, Švýcarsko, Izrael a ČR. Budget: 50 mil. EUR.]</span>
+
+Úkol:
+1. Proveď PESTLE analýzu (Political, Economic, Social, Technological, Legal, Environmental) pro každý trh.
+2. Výstup: přehledná tabulka — řádky = PESTLE dimenze, sloupce = země.
+3. Každou buňku ohodnoť: příznivé / neutrální / rizikové.
+4. Na konci: celkové doporučení — kam investovat jako první a proč.
+
+Pokud potřebuješ aktuální data (legislativa, demografie, daně), vyhledej je.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „V Deloitte jsme tyhle analýzy dělali měsíc &mdash; a ještě to stálo desítky tisíc. AI to projede za 5 minut. Samozřejmě to pak chcete projít s chytrými lidmi, kteří na to hodí oko, ale základ máte okamžitě."
+  </div>
+</div>
+
+<!-- PROMPT 7 -->
+<div class="prompt-card" id="p7">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">7</span> SWOT analýza <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Stojíte před důležitým rozhodnutím. Potřebujete strukturu, ne chaos v hlavě.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi strategický analytik a osobní poradce.
+
+Moje situace: <span class="placeholder">[POPIŠTE DILEMA — např.: Mám tři nabídky práce: korporace, startup a neziskovka. Ve všech bych pracovala jako datová analytička. Je mi 25.]</span>
+
+Úkol:
+1. Ke KAŽDÉ variantě vypracuj SWOT analýzu (Strengths, Weaknesses, Opportunities, Threats).
+2. Formát: tabulka s 2×2 maticí pro každou variantu.
+3. Přidej srovnávací skóre (1–10): kariérní růst, finance, work-life balance, učení.
+4. Závěrečné doporučení formuluj jako otázky, které si mám položit — ne jako direktivní radu.</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> SWOT funguje na cokoliv &mdash; nejen na byznys. Kam na dovolenou, kterou školu pro děti, zda přijmout povýšení. AI na nic nezapomene &mdash; to je jako checklist pro piloty.
+  </div>
+</div>
+
+<!-- PROMPT 8 -->
+<div class="prompt-card" id="p8">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">8</span> Playing to Win <span class="tag-upgraded">vylepšeno</span></h3>
+    <p class="prompt-situation">Máte vizi a misi. Potřebujete z toho udělat strategii, kterou půjde exekuovat.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený strategický kouč pracující s frameworkem "Playing to Win" (A.G. Lafley &amp; Roger L. Martin).
+
+Naše firma:
+- Mise: <span class="placeholder">[DOPLŇTE]</span>
+- Vize: <span class="placeholder">[DOPLŇTE]</span>
+- Aktuální fáze: <span class="placeholder">[startup / scale-up / established]</span>
+
+Úkol:
+1. Projdi celou kaskádu Playing to Win:
+   - What is our winning aspiration?
+   - Where will we play?
+   - How will we win?
+   - What capabilities must be in place?
+   - What management systems are required?
+2. Ke každé úrovni navrhni 2–3 konkrétní odpovědi.
+3. Výstup: kaskádová tabulka + identifikace 3 největších strategických rizik.
+
+Piš česky, zachovej anglické názvy úrovní kaskády.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Když jsem poprvé viděla, co z toho vyjede, padla jsem do kolen. Základní cíl, začleňující hodnoty, výhodná pozice na trhu, cílové skupiny, klíčové iniciativy, KPIs, rizika, organizační kapacity, implementace, monitoring &mdash; to všechno za 10 minut. Hoďte si to do stroje, udělejte si tuhle základní strategii &mdash; a pak si obejděte své chytré kamarády. Jeden stratég, jeden marketér, jeden finanční. Oni na to hodí oko za 5 minut, protože to mají v sobě. Za týden to máte hotové."
+  </div>
+</div>
+
+<!-- PROMPT 9 -->
+<div class="prompt-card" id="p9">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">9</span> Blue Ocean Strategy</h3>
+    <p class="prompt-situation">Hledáte prostor na trhu, kde nebudete soupeřit s konkurencí, ale vytvoříte novou kategorii.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi stratég specializovaný na Blue Ocean Strategy (W. Chan Kim &amp; Renée Mauborgne).
+
+Můj byznys: <span class="placeholder">[POPIŠTE — typ služeb, cílová skupina, trh]</span>
+
+Úkol:
+1. Identifikuj faktory, které konkurence v tomto odvětví typicky řeší (strategy canvas).
+2. Navrhni Four Actions Framework: co eliminovat, snížit, zvýšit, vytvořit nové.
+3. Srovnej: stávající hráči vs. můj Blue Ocean přístup.
+4. Navrhni 3 konkrétní „Blue Ocean moves" pro vstup na trh v <span class="placeholder">[ZEMĚ]</span>.
+
+Formát: kombinace tabulek a stručného komentáře.</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Blue Ocean je pro průkopníky &mdash; jdete tam, kde ještě nikdo nebyl. Ale AI vám pomůže ověřit, zda tam není důvod, proč tam nikdo nejde. Většina firem jde do Red Ocean (tam, kde už někdo vydělal) &mdash; Blue Ocean je pro ty, kdo chtějí vytvořit novou kategorii.
+  </div>
+</div>
+
+<!-- PROMPT 10 -->
+<div class="prompt-card" id="p10">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">10</span> Myšlenková mapa + SWOT</h3>
+    <p class="prompt-situation">Komplexní rozhodnutí s více variantami. Potřebujete vizuální strukturu.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi můj strategický poradce.
+
+Stojím před rozhodnutím: <span class="placeholder">[POPIŠTE VARIANTY — např.: 4 možnosti, kam jet na dovolenou / 3 varianty reorganizace týmu / 2 nabídky od investorů]</span>
+
+Úkol:
+1. Vytvoř myšlenkovou mapu — centrum = rozhodnutí, větve = varianty.
+2. Ke každé větvi přidej mini-SWOT: výhody, nevýhody, příležitosti, hrozby.
+3. Na konci navrhni „hybrid" — kombinaci variant, která minimalizuje rizika a maximalizuje přínos.
+
+Výstup formátuj přehledně s odsazením.</pre>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK IV: KREATIVNÍ MYŠLENÍ -->
+<!-- ============================================ -->
+<div class="section-header" id="blok4">
+  <h2>IV. Kreativní myšlení &amp; perspektivy</h2>
+  <p class="section-desc">Nejsilnější schopnost AI: podívat se na váš problém očima, které vy sami nemáte.</p>
+</div>
+
+<!-- PROMPT 11 -->
+<div class="prompt-card" id="p11">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">11</span> Strukturovaný brainstorming <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Potřebujete nápady. Hodně nápadů. A ne generické &mdash; chcete i ty z okraje spektra.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi kreativní stratég a facilitátor brainstormingových workshopů.
+
+Můj problém / výzva:
+<span class="placeholder">[POPIŠTE — např.: „Jak zvýšit účast zaměstnanců na firemních vzdělávacích programech, když je nikdo nenutí?"]</span>
+
+Pravidla brainstormingu:
+1. Vygeneruj 20 nápadů — od konzervativních po odvážné. Žádná autocenzura.
+2. Rozděl je: Quick wins (do týdne) / Systémové změny (do kvartálu) / Moonshoty (odvážné, dlouhodobé).
+3. U každého: odhadovaný dopad (1–5) a náročnost (1–5).
+4. Vyber TOP 3 a ke každému napiš elevator pitch (3 věty) a první konkrétní krok.
+
+Důležité: Chci odpovědi z celého spektra pravděpodobností — včetně těch neobvyklých a okrajových. Nechci jen mainstreamová řešení.</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Magická věta:</strong> „Dej mi odpovědi z celého spektra pravděpodobností." Tato jediná věta promění jakýkoliv prompt. AI normálně konverguje k průměrnému řešení. Když ji požádáte o celé spektrum, dostanete i ty out-of-the-box nápady, které by vás nenapadly. Většina bude nesmysl &mdash; ale jedna nebo dvě budou valeur.
+  </div>
+</div>
+
+<!-- PROMPT 12 -->
+<div class="prompt-card" id="p12">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">12</span> Šest klobouků de Bono <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Potřebujete prozkoumat rozhodnutí ze všech úhlů &mdash; ne jen z toho, který vám vyhovuje.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Znáš metodu Šest myslících klobouků Edwarda de Bono (laterální myšlení).
+
+Moje rozhodnutí / návrh:
+<span class="placeholder">[POPIŠTE — např.: „Chci své šéfové navrhnout zavedení povinného AI školení pro 500 zaměstnanců."]</span>
+
+Projdi problém postupně skrz všech šest klobouků:
+
+MODRÝ (řízení procesu): Jak je problém definován? Co je skutečná otázka?
+BÍLÝ (fakta a data): Jaká tvrdá data máme? Co nám chybí?
+ČERVENÝ (emoce a intuice): Co cítí zaměstnanci? Vedení? Já?
+ŽLUTÝ (optimismus): Nejlepší scénář? Jaké přínosy očekávat?
+ČERNÝ (kritické myšlení): Co se může pokazit? Rizika, slabiny?
+ZELENÝ (kreativita): Neobvyklé alternativy? Co kdybychom to udělali úplně jinak?
+
+Na konci:
+- Syntéza: Co vyplynulo ze všech perspektiv?
+- Doporučení: Jaké rozhodnutí dává smysl a za jakých podmínek?
+
+U každého klobouku uveď 3–5 bodů.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Mám tenhle framework moc ráda a ráda ho používám. Stačí napsat: ‚Mám takovýhle nápad a chci ho projet de Bonovou metodou z hlediska mé šéfové' &mdash; a dáte tam i její OSINT. AI vám za 10 minut řekne věci, které zřejmě máte v hlavě, ale jedna nebo dvě budou opravdu překvapivé."
+  </div>
+</div>
+
+<!-- PROMPT 13 -->
+<div class="prompt-card" id="p13">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">13</span> Multiperspektiva &mdash; Jeden problém, pět očí <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Chcete se podívat na svůj problém očima lidí, kteří myslí úplně jinak než vy &mdash; od Warrena Buffetta po vaše vlastní dítě.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Mám situaci, na kterou se potřebuji podívat z více úhlů.
+
+Situace: <span class="placeholder">[POPIŠTE — např.: „Naše firma zvažuje akvizici konkurenta za 200 mil. Kč. Máme na to, ale vyčerpá to naše rezervy."]</span>
+
+Analyzuj situaci postupně z pohledu těchto 5 osob:
+
+1. CEO velké korporace (zkušený, konzervativní, myslí v horizontu 5 let)
+2. Řadový zaměstnanec naší firmy (zajímá ho stabilita a vlastní pozice)
+3. Investigativní novinář (hledá háček, ptá se „cui bono?")
+4. Warren Buffett (value investor, margin of safety)
+5. Chytré 12leté dítě (naivní, ale nečekaně trefné otázky)
+
+U každé perspektivy:
+- Jaká je hlavní otázka, kterou by tato osoba položila?
+- Jaké riziko vidí jako první?
+- Co by doporučila?
+
+Na konci: Kde se perspektivy shodují? (= pravděpodobně pravda) Kde se rozcházejí? (= prostor pro další analýzu)</pre>
+  </div>
+  <div class="story-box">
+    <strong>Ze Sentiných zkušeností:</strong> „Můžete dát AI fotografii Grand Canyonu a zeptat se ‚Co vidíš?' Řekne: ‚Kaňon.' Pak řeknete: ‚Seš geolog' &mdash; a ona začne rozebírat geologické vrstvy. Řeknete: ‚Seš ekolog' &mdash; a mluví o vegetaci a znečištění. Tohle funguje i na vaše byznysové problémy. Řekněte AI, ať je Warren Buffett, ať je vaše šéfová, ať je váš syn. Potřebujete avatar ne na sebe &mdash; sebe máte &mdash; ale na člověka, který je pro vás důležitý."
+  </div>
+  <div class="tip-box">
+    <strong>Pro pokročilé:</strong> Nahraďte generické role konkrétními lidmi. Dáte-li AI OSINT vašeho šéfa + kontext vaší firmy, simulace bude překvapivě přesná. Firmy takhle simulují zákaznické persony &mdash; AI jede kampaně proti virtuálnímu zákazníkovi a ten říká: ‚Tohle se mi líbí, na tohle neslyším.'
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK V: OSINT -->
+<!-- ============================================ -->
+<div class="section-header" id="blok5">
+  <h2>V. OSINT &amp; research</h2>
+  <p class="section-desc">Dva prompty pro situace, kdy potřebujete rychle vědět maximum &mdash; z veřejných zdrojů, legálně a eticky.</p>
+</div>
+
+<!-- PROMPT 14 -->
+<div class="prompt-card" id="p14">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">14</span> OSINT &mdash; Profil osoby <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Zítra máte schůzku s někým důležitým. Chcete vědět, s kým máte tu čest.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi analytik specializovaný na OSINT — analýzu veřejně dostupných zdrojů.
+
+Osoba: <span class="placeholder">[JMÉNO A PŘÍJMENÍ, pozice/firma pro upřesnění]</span>
+
+Sestav komplexní profil výhradně z veřejně dostupných zdrojů:
+
+1. ZÁKLADNÍ IDENTIFIKACE — současná pozice, firma, lokace
+2. PROFESNÍ HISTORIE — kariérní trajektorie (časová osa)
+3. VZDĚLÁNÍ — školy, certifikace, akademické aktivity
+4. VEŘEJNÉ VÝSTUPY — články, rozhovory, přednášky, podcasty, sociální sítě
+5. BYZNYSOVÉ VAZBY — firmy v OR, živnostenský rejstřík, role v boardech
+6. MEDIÁLNÍ STOPA — zmínky v médiích (pozitivní i negativní)
+7. SÍŤOVÁNÍ — s kým je veřejně spojován/a, komunity, konference
+8. ČERVENÉ VLAJKY — insolvenční rejstřík, exekuce, soudní spory (veřejné registry)
+
+Pravidla:
+- POUZE veřejně dostupné zdroje. U každé informace uveď typ zdroje.
+- „Nenalezeno" je taky důležitá informace — napiš to explicitně.
+- Na konci: 3–5 otázek „Na co se zeptat při schůzce" vycházejících z profilu.
+
+Vyhledej aktuální informace na webu.</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> OSINT osoby je základ pro další prompty. Výstup můžete rovnou použít jako vstup do role-playingu (prompt 3), multiperspektivy (prompt 13) nebo přípravy na jednání (prompt 17).
+  </div>
+</div>
+
+<!-- PROMPT 15 -->
+<div class="prompt-card" id="p15">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">15</span> OSINT &mdash; Profil firmy / instituce <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Zvažujete spolupráci, investici nebo nástup. Chcete vědět víc, než říká firemní web.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi business intelligence analytik specializovaný na OSINT firem z veřejných zdrojů.
+
+Firma/instituce: <span class="placeholder">[NÁZEV, případně IČO]</span>
+
+Sestav profil:
+
+1. ZÁKLADNÍ DATA — sídlo, IČO, vznik, právní forma, předmět podnikání
+2. VLASTNICKÁ STRUKTURA — vlastníci, mateřské/dceřiné společnosti, skuteční majitelé
+3. VEDENÍ — statutární orgány, management, změny v posledních 3 letech
+4. FINANČNÍ ZDRAVÍ — poslední výkazy (obrat, zisk/ztráta, trend)
+5. ZAMĚSTNANCI — počet, trend, recenze (Glassdoor/Atmoskop)
+6. TRŽNÍ POZICE — konkurenti, podíl na trhu, klíčové produkty
+7. MEDIÁLNÍ OBRAZ — zmínky v médiích, tiskové zprávy, kauzy
+8. PRÁVNÍ — insolvenční rejstřík, soudní spory, ČOI, ÚOHS
+9. DIGITÁLNÍ STOPA — web, sociální sítě, kvalita komunikace
+10. ESG A REPUTACE — CSR aktivity, kontroveze
+
+Pravidla:
+- Pouze veřejné zdroje. „Nenalezeno" je validní výstup.
+- Na konci: SWOT shrnutí firmy + 5 otázek před podpisem smlouvy.
+
+Vyhledej aktuální informace na webu.</pre>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOK VI: BONUSY -->
+<!-- ============================================ -->
+<div class="section-header" id="blok6">
+  <h2>VI. Bonusy &amp; pokročilé techniky</h2>
+  <p class="section-desc">Dva prompty, které uzavírají kufřík s WOW efektem.</p>
+</div>
+
+<!-- PROMPT 16 -->
+<div class="prompt-card" id="p16">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">16</span> Pre-mortem analýza <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Máte plán, všichni souhlasí &mdash; a právě to je nebezpečné. Pre-mortem obrací perspektivu: „Představte si, že projekt selhal. Proč?"</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi projektový stratég a specialista na řízení rizik.
+
+Náš plán: <span class="placeholder">[POPIŠTE — projekt, timeline, budget, tým]</span>
+
+Pre-mortem analýza:
+Představ si, že je za <span class="placeholder">[6 měsíců]</span> a projekt SELHAL. Totálně.
+
+1. Napiš 10 nejpravděpodobnějších důvodů, PROČ selhal.
+2. Ke každému navrhni preventivní opatření, které jsme měli zavést DNES.
+3. Identifikuj „tichého zabijáka" — riziko, které všichni vidí, ale nikdo nepojmenuje.
+4. Navrhni 3 „tripwire" signály — varovná znamení, že se schyluje k problému.
+
+Formát: tabulka (Riziko / Pravděpodobnost / Dopad / Prevence / Tripwire).</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Proč pre-mortem:</strong> Je to technika z CIA a vojenského plánování. AI je na ni ideální &mdash; nemá ego, nemá groupthink, nebojí se říct nepříjemnou pravdu. Přesně to, co potřebujete, když se všichni tváří, že plán je bezchybný.
+  </div>
+</div>
+
+<!-- PROMPT 17 -->
+<div class="prompt-card" id="p17">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">17</span> Příprava na klíčové jednání <span class="tag-new">nové</span></h3>
+    <p class="prompt-situation">Za hodinu máte důležitou schůzku. Potřebujete víc než „projít si agendu".</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi můj osobní strategický poradce a briefing officer.
+
+Zítra mám klíčové jednání:
+- S kým: <span class="placeholder">[JMÉNO, POZICE, FIRMA]</span>
+- Téma: <span class="placeholder">[O čem se bude jednat]</span>
+- Můj cíl: <span class="placeholder">[Co chci odnést]</span>
+- Můj kontext: <span class="placeholder">[Moje pozice, firma, vztah s protistranou]</span>
+
+Připrav mi:
+1. BRIEFING o protistraně (stručný profil z veřejných zdrojů)
+2. STRATEGII jednání — jaký přístup, co říct první, čemu se vyhnout
+3. TŘI SCÉNÁŘE: optimistický / realistický / pesimistický — reakce na každý
+4. KILLER QUESTIONS — 3 otázky, které postaví jednání do mojí výhody
+5. BATNA — můj plán B, když se nedohodneme
+
+Check-list: 5 věcí ke kontrole 30 minut před jednáním.
+
+Vyhledej aktuální informace o protistraně na webu.</pre>
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Tohle je „meta-prompt" &mdash; kombinuje OSINT (prompt 14), strategii a role-playing. Pro maximální efekt: nejdřív udělejte OSINT protistrany, pak příprava na jednání, a na závěr si s AI odehrajte simulaci rozhovoru (prompt 3).
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PRINCIPLES -->
+<!-- ============================================ -->
+<div class="principles">
+  <h2>6 principů dobrého promptu</h2>
+
+  <div class="principle">
+    <div class="principle-icon">1</div>
+    <div class="principle-text">
+      <h4>Role</h4>
+      <p>Vždy řekněte AI, kým má být. „Seš můj zkušený konzultant" změní výstup víc, než byste čekali. Je to jako když člověku řeknete, že je v Číně &mdash; okamžitě ví, jak tam věci fungují.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">2</div>
+    <div class="principle-text">
+      <h4>Kontext</h4>
+      <p>Čím víc kontextu, tím lepší výstup. AI není jasnovidec &mdash; unikátní informace máte v hlavě jen vy. AI umí všechno obecné; vy dodáte to specifické.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">3</div>
+    <div class="principle-text">
+      <h4>Struktura výstupu</h4>
+      <p>Řekněte, JAK má výstup vypadat: tabulka, seznam, skóre, kaskáda. Definovaný formát = použitelný výstup.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">4</div>
+    <div class="principle-text">
+      <h4>Interakce</h4>
+      <p>Nechte AI klást otázky. Nejlepší výsledky vznikají dialogem. Snižte ego a řekněte: „Polož mi 5 otázek." AI možná ví věci, které vy nevíte &mdash; třeba jak vypadá referenční dopis v Číně.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">5</div>
+    <div class="principle-text">
+      <h4>Perspektiva</h4>
+      <p>AI umí přepínat pohledy na povel. Jeden problém, pět očí. Tohle je její největší superschopnost &mdash; využijte ji.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-icon">6</div>
+    <div class="principle-text">
+      <h4>Pochvalte ji</h4>
+      <p>Zní to komicky, ale studie potvrzují: pozitivní motivace zlepšuje výstupy o 5 %. A naopak &mdash; stres a výhrůžky kvalitu snižují. Chovejte se k AI jako k nejlepšímu člověku v týmu.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Sentin kufřík</strong> &mdash; Senta Čermáková &amp; <a href="https://inspiruj.se">Inspiruj.se</a> &bull; 2026</p>
+  <p>Prompty jsou univerzální &mdash; fungují v ChatGPT, Claude, Copilot i Gemini.</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+function copyPrompt(btn) {
+  const pre = btn.parentElement.querySelector('pre');
+  // Get text content, replacing placeholder spans with bracket notation
+  let text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Zkopírováno!';
+    setTimeout(() => btn.textContent = 'Kopírovat', 2000);
+  });
+}
+</script>
+
+</body>
+</html>
