@@ -4,7 +4,7 @@
 Statický miniweb na `kufrik.inspiruj.se` (deploy z Netlify). Dva sourozenecké kufříky AI promptů:
 
 - **Sentin kufřík** — byznys, leadership, strategie (17 promptů, CZ + EN)
-- **Milošův kufřík** — psaní, myšlení, kreativita, kód (20 promptů, zatím jen CZ)
+- **Milošův kufřík** — psaní, čtení, research, kreativita, život s AI, tvorba (30 promptů v 7 blocích, zatím jen CZ)
 
 Plus **rozcestník** na kořeni domény.
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milošův kufřík — AI prompty na psaní, myšlení, kreativitu a kód</title>
+<title>Milošův kufřík — 30 AI promptů na psaní, čtení, kreativitu a život s AI</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
@@ -411,6 +411,9 @@
   .tag-think { background: #4A6FA5; }
   .tag-create { background: #6B8E4E; }
   .tag-code { background: #5D4B8B; }
+  .tag-read { background: #8B5E34; }
+  .tag-scribe { background: #3D7A6E; }
+  .tag-life { background: #B0578D; }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
@@ -431,60 +434,88 @@
   }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
 <div class="hero">
   <h1>Milošův kufřík</h1>
-  <p class="subtitle">20 AI promptů na psaní, přemýšlení, kreativitu a kód. Žádné konzultantské frameworky &mdash; spíš dílna než kancelář.</p>
+  <p class="subtitle">30 AI promptů na psaní, čtení, research, kreativitu a život s&nbsp;AI. Žádné konzultantské frameworky &mdash; spíš dílna než kancelář.</p>
   <p class="author">Miloš Čermák &bull; novinář, autor, AI lektor &bull; Inspiruj.se &bull; 2026</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <div class="toc">
   <h2>Obsah</h2>
-
   <div class="toc-block">
-    <div class="toc-block-title">I. Psaní — jeden hlas, pět režimů</div>
+    <div class="toc-block-title">I. Psaní — jeden hlas, mnoho žánrů</div>
     <div class="toc-grid">
       <a href="#p1" class="toc-item"><span class="toc-num">1</span> Trénink vlastního hlasu</a>
       <a href="#p2" class="toc-item"><span class="toc-num">2</span> Sloupek ve vlastním stylu</a>
-      <a href="#p3" class="toc-item"><span class="toc-num">3</span> Explainer z podkladu</a>
-      <a href="#p4" class="toc-item"><span class="toc-num">4</span> Tvrdá zpětná vazba</a>
-      <a href="#p5" class="toc-item"><span class="toc-num">5</span> Rozvinout vtip</a>
+      <a href="#p3" class="toc-item"><span class="toc-num">3</span> Tvrdá zpětná vazba</a>
+      <a href="#p4" class="toc-item"><span class="toc-num">4</span> Explainer z podkladu</a>
+      <a href="#p5" class="toc-item"><span class="toc-num">5</span> Newsletter z hromady odkazů</a>
+      <a href="#p6" class="toc-item"><span class="toc-num">6</span> Studie &rarr; čtivý článek</a>
+      <a href="#p7" class="toc-item"><span class="toc-num">7</span> Rozvinout vtip</a>
+      <a href="#p8" class="toc-item"><span class="toc-num">8</span> Recenzent vína</a>
     </div>
   </div>
 
   <div class="toc-block">
-    <div class="toc-block-title">II. Přemýšlení — research a druhý mozek</div>
+    <div class="toc-block-title">II. Čtení — vytěžit z textu maximum</div>
     <div class="toc-grid">
-      <a href="#p6" class="toc-item"><span class="toc-num">6</span> Deep research briefing</a>
-      <a href="#p7" class="toc-item"><span class="toc-num">7</span> OSINT proklepnutí</a>
-      <a href="#p8" class="toc-item"><span class="toc-num">8</span> NotebookLM jako druhý mozek</a>
-      <a href="#p9" class="toc-item"><span class="toc-num">9</span> Nepříjemné otázky / DVTV</a>
-      <a href="#p10" class="toc-item"><span class="toc-num">10</span> Pětiodpověďový prompt</a>
+      <a href="#p9" class="toc-item"><span class="toc-num">9</span> Sumarizace na maximum</a>
+      <a href="#p10" class="toc-item"><span class="toc-num">10</span> Sumarizace přes otázky</a>
+      <a href="#p11" class="toc-item"><span class="toc-num">11</span> Jak porozumět eseji</a>
+      <a href="#p12" class="toc-item"><span class="toc-num">12</span> Vědecký konsensus</a>
     </div>
   </div>
 
   <div class="toc-block">
-    <div class="toc-block-title">III. Kreativita — z ničeho něco</div>
+    <div class="toc-block-title">III. Research a příprava</div>
     <div class="toc-grid">
-      <a href="#p11" class="toc-item"><span class="toc-num">11</span> Mraveneček (multimodální)</a>
-      <a href="#p12" class="toc-item"><span class="toc-num">12</span> Klonování hlasu</a>
-      <a href="#p13" class="toc-item"><span class="toc-num">13</span> Suno písnička</a>
-      <a href="#p14" class="toc-item"><span class="toc-num">14</span> Brainstorming ze spektra</a>
-      <a href="#p15" class="toc-item"><span class="toc-num">15</span> Slovo &mdash; hra s jazykem</a>
+      <a href="#p13" class="toc-item"><span class="toc-num">13</span> Deep research briefing</a>
+      <a href="#p14" class="toc-item"><span class="toc-num">14</span> OSINT proklepnutí</a>
+      <a href="#p15" class="toc-item"><span class="toc-num">15</span> Nepříjemné otázky / DVTV</a>
+      <a href="#p16" class="toc-item"><span class="toc-num">16</span> Pětiodpověďový prompt</a>
+      <a href="#p17" class="toc-item"><span class="toc-num">17</span> NotebookLM jako druhý mozek</a>
     </div>
   </div>
 
   <div class="toc-block">
-    <div class="toc-block-title">IV. Kódování bez programátora — vibecoding</div>
+    <div class="toc-block-title">IV. Přepisy — z nahrávky dokument</div>
     <div class="toc-grid">
-      <a href="#p16" class="toc-item"><span class="toc-num">16</span> HTML aplikace v canvasu</a>
-      <a href="#p17" class="toc-item"><span class="toc-num">17</span> Single-page web + Netlify</a>
-      <a href="#p18" class="toc-item"><span class="toc-num">18</span> Skill pro Claude Code</a>
-      <a href="#p19" class="toc-item"><span class="toc-num">19</span> Debugging vlastní aplikace</a>
-      <a href="#p20" class="toc-item"><span class="toc-num">20</span> Prezentace v Gammě</a>
+      <a href="#p18" class="toc-item"><span class="toc-num">18</span> Podcast &rarr; psaný rozhovor</a>
+      <a href="#p19" class="toc-item"><span class="toc-num">19</span> Přednáška &rarr; příručka</a>
+      <a href="#p20" class="toc-item"><span class="toc-num">20</span> Kuchařský kurz &rarr; kuchařka</a>
+    </div>
+  </div>
+
+  <div class="toc-block">
+    <div class="toc-block-title">V. Kreativita a hra</div>
+    <div class="toc-grid">
+      <a href="#p21" class="toc-item"><span class="toc-num">21</span> Wiki fiktivní osobnosti</a>
+      <a href="#p22" class="toc-item"><span class="toc-num">22</span> Vysvětli to osmiletému</a>
+      <a href="#p23" class="toc-item"><span class="toc-num">23</span> Jednoliniová kresba</a>
+      <a href="#p24" class="toc-item"><span class="toc-num">24</span> Dětská kresba pastelkami</a>
+    </div>
+  </div>
+
+  <div class="toc-block">
+    <div class="toc-block-title">VI. Život s AI</div>
+    <div class="toc-grid">
+      <a href="#p25" class="toc-item"><span class="toc-num">25</span> Weekend planner</a>
+      <a href="#p26" class="toc-item"><span class="toc-num">26</span> Analytik vína na cestách</a>
+      <a href="#p27" class="toc-item"><span class="toc-num">27</span> Ranní briefing</a>
+    </div>
+  </div>
+
+  <div class="toc-block">
+    <div class="toc-block-title">VII. Tvorba — AI s rukama</div>
+    <div class="toc-grid">
+      <a href="#p28" class="toc-item"><span class="toc-num">28</span> Výpomocná HTML aplikace</a>
+      <a href="#p29" class="toc-item"><span class="toc-num">29</span> Skill pro Claude Code</a>
+      <a href="#p30" class="toc-item"><span class="toc-num">30</span> Prezentace ze záznamu (Gamma)</a>
     </div>
   </div>
 </div>
@@ -512,21 +543,18 @@
       <tr><td>Typický uživatel</td><td>Manažer, lídr</td><td>Autor, novinář, vibecoder, kreativec</td></tr>
       <tr><td>Typický výstup</td><td>One-pager, analýza, scénář</td><td>Článek, aplikace, nahrávka, příručka</td></tr>
       <tr><td>Magické věty</td><td>„Jsi strategický poradce…"</td><td>„Tady je 5 mých textů. Piš jako já."</td></tr>
-      <tr><td>Hrdinové</td><td>McKinsey, Lafley, Kim &amp; Mauborgne</td><td>NotebookLM, Claude Code, ElevenLabs, Suno</td></tr>
+      <tr><td>Hrdinové</td><td>McKinsey, Lafley, Kim &amp; Mauborgne</td><td>NotebookLM, Claude Code, ElevenLabs, Gamma</td></tr>
       <tr><td>Energie</td><td>Klid a struktura</td><td>Hra a iterace</td></tr>
     </tbody>
   </table>
 </div>
 
 <!-- ============================================ -->
-<!-- BLOK I: PSANÍ -->
-<!-- ============================================ -->
 <div class="section-header" id="blok1">
-  <h2>I. Psaní &mdash; Jeden hlas, pět režimů</h2>
-  <p class="section-desc">Jak udělat z AI ne autora, ale zrcadlo vašeho stylu. Od nejdůležitějšího (vlastní hlas) po nejzábavnější (rozvíjení vtipu).</p>
+  <h2>I. Psaní &mdash; Jeden hlas, mnoho žánrů</h2>
+  <p class="section-desc">Jak udělat z AI ne autora, ale zrcadlo vašeho stylu. Od tréninku vlastního hlasu přes newslettery a vědu až po recenzi vína.</p>
 </div>
 
-<!-- PROMPT 1 -->
 <div class="prompt-card" id="p1">
   <div class="prompt-card-header">
     <h3><span class="prompt-number">1</span> Trénink vlastního hlasu <span class="tag tag-write">psaní</span></h3>
@@ -564,7 +592,6 @@ Piš věcně, bez podlézání. Tohle není recenze, je to instrukce, kterou si 
   </div>
 </div>
 
-<!-- PROMPT 2 -->
 <div class="prompt-card" id="p2">
   <div class="prompt-card-header">
     <h3><span class="prompt-number">2</span> Sloupek / komentář ve vlastním hlasu <span class="tag tag-write">psaní</span></h3>
@@ -586,7 +613,7 @@ Můj záměr:
 
 Pravidla:
 
-1. Začni větou, která má říznout. Žádné „v poslední době se hodně mluví o…". Žádné „v dnešní turbulentní době…".
+1. Začni větou, která rovnou otvírá téma nebo příběh. Žádné „v poslední době se hodně mluví o…". Žádné „v dnešní turbulentní době…".
 2. Nepiš obecně. Buď konkrétní. Jména, čísla, místa.
 3. Neměj závěr typu „ukáže až čas". Skonči větou, která něco říká.
 4. Když si nejsi jistá, jestli něco mám rád nebo nemám, napiš dvě verze.
@@ -601,10 +628,47 @@ Před psaním mi polož 3 otázky, abys mě nechtěla interpretovat ve zlém.</p
   </div>
 </div>
 
-<!-- PROMPT 3 -->
 <div class="prompt-card" id="p3">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">3</span> Explainer článek z hrubého podkladu <span class="tag tag-write">psaní</span></h3>
+    <h3><span class="prompt-number">3</span> Tvrdá zpětná vazba na vlastní text <span class="tag tag-write">psaní</span></h3>
+    <p class="prompt-situation">Napsali jste text. Víte, že není finální, ale nevidíte už, kde je problém. AI vám pomůže udělat krok zpátky.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je můj text:
+
+<span class="placeholder">[VLOŽTE TEXT]</span>
+
+Úkol: dej mi tvrdou, objektivní zpětnou vazbu. Tohle není recenze pro maminku, je to redakční rozbor.
+
+Postupuj v pěti krocích:
+
+1. Hlavní myšlenka. O čem ten text je? Napiš jednou větou. Pokud to nezvládneš jednou větou, je problém v textu, ne v tobě.
+
+2. Co funguje. Tři nejlepší věci v textu — konkrétně, s citacemi. Stručně.
+
+3. Co nefunguje. Tři nejhorší věci v textu — co jsou klišé, kde jsou rozkrácené odstavce, kde čtenář ztrácí pozornost. Konkrétně, s citacemi.
+
+4. Strukturální problém. Něco, co v textu nevidím, ale narušuje ho. (Špatný start, mrtvý střed, chybějící protitvar, nemotivovaný závěr…)
+
+5. Jeden konkrétní návrh. Jedna konkrétní úprava, která by text posunula nejvíc. Ne deset. Jedna.
+
+Pravidla pro tebe:
+- Žádné podlézání. Žádné „celkově je to silný text, jen…". Pokud je problém, napiš ho.
+- Žádné generické rady („buď konkrétnější"). Pokud něco říkáš, řekni kde a jak.
+- Nemusíš všechno hodnotit pozitivně-negativně-pozitivně. Já nejsem křehký.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Chci vědět, jak jsem text napsal a jestli nejde napsat líp. To je typicky úkol pro novinového editora &mdash; ale ten je dostupný v jednu středu v pět odpoledne.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> <em>„Žádné podlézání"</em> je explicitní instrukce proti modelové <em>sycophancy</em> &mdash; sklonu chválit. <em>„Já nejsem křehký"</em> vážně funguje. Modely si dávají pozor, aby vás neurazily, a tahle věta jim řekne, že nemusí.
+  </div>
+</div>
+
+<div class="prompt-card" id="p4">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">4</span> Explainer článek z hrubého podkladu <span class="tag tag-write">psaní</span></h3>
     <p class="prompt-situation">Máte studii, tiskovku, podcast &mdash; něco zajímavého. Chcete z toho udělat čtivý článek pro web, ne reprodukovat odbornou hatmatilku.</p>
   </div>
   <div class="prompt-box">
@@ -641,49 +705,74 @@ Před psaním mi polož 2 otázky o úhlu, ze kterého chceš psát.</pre>
   </div>
 </div>
 
-<!-- PROMPT 4 -->
-<div class="prompt-card" id="p4">
+<div class="prompt-card" id="p5">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">4</span> Tvrdá zpětná vazba na vlastní text <span class="tag tag-write">psaní</span></h3>
-    <p class="prompt-situation">Napsali jste text. Víte, že není finální, ale nevidíte už, kde je problém. AI vám pomůže udělat krok zpátky.</p>
+    <h3><span class="prompt-number">5</span> Newsletter z hromady odkazů <span class="tag tag-write">psaní</span></h3>
+    <p class="prompt-situation">Celý týden sbíráte odkazy, články a poznámky. V pátek z nich má být newsletter. Nejtěžší není psaní &mdash; je to výběr.</p>
   </div>
   <div class="prompt-box">
     <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Tady je můj text:
+    <pre>Tady jsou materiály, které jsem tenhle týden posbíral:
 
-<span class="placeholder">[VLOŽTE TEXT]</span>
+<span class="placeholder">[VLOŽTE — články, odkazy, poznámky, tiskovky, cokoliv]</span>
 
-Úkol: dej mi tvrdou, objektivní zpětnou vazbu. Tohle není recenze pro maminku, je to redakční rozbor.
+Napiš z nich draft mého newsletteru. Použij můj styl psaní (viz uložený dokument o tom, jak píšu).
 
-Postupuj v pěti krocích:
+Struktura:
+1. Osobní úvod — jeden odstavec: co mě tenhle týden zaujalo nejvíc a proč.
+2. 5–8 hlavních položek. Každá: titulek, 2–4 věty co to je, a JEDNA věta můj komentář — proč to čtenáře má zajímat, co si o tom myslím.
+3. Sekce „Stručně" — zbytek materiálů, jedna věta na položku.
 
-1. Hlavní myšlenka. O čem ten text je? Napiš jednou větou. Pokud to nezvládneš jednou větou, je problém v textu, ne v tobě.
-
-2. Co funguje. Tři nejlepší věci v textu — konkrétně, s citacemi. Stručně.
-
-3. Co nefunguje. Tři nejhorší věci v textu — co jsou klišé, kde jsou rozkrácené odstavce, kde čtenář ztrácí pozornost. Konkrétně, s citacemi.
-
-4. Strukturální problém. Něco, co v textu nevidím, ale narušuje ho. (Špatný start, mrtvý střed, chybějící protitvar, nemotivovaný závěr…)
-
-5. Jeden konkrétní návrh. Jedna konkrétní úprava, která by text posunula nejvíc. Ne deset. Jedna.
-
-Pravidla pro tebe:
-- Žádné podlézání. Žádné „celkově je to silný text, jen…". Pokud je problém, napiš ho.
-- Žádné generické rady („buď konkrétnější"). Pokud něco říkáš, řekni kde a jak.
-- Nemusíš všechno hodnotit pozitivně-negativně-pozitivně. Já nejsem křehký.</pre>
+Pravidla:
+- Piš jen z dodaných materiálů. Nic nedohledávej, nic nevymýšlej.
+- Žádné marketingové parafráze („revoluční nástroj mění pravidla hry"). Když je zpráva přefouknutá, napiš, že je přefouknutá.
+- Vybírej. Když ti dám dvacet materiálů, do hlavní části jich patří osm. Řekni mi, které jsi vyřadil a proč.
+- Na konec navrhni tři předměty e-mailu — od popisného po drzý.</pre>
   </div>
   <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Používám to i pro nikomu nikdy neukázané rozepsané kapitoly. AI je první čtenář, který se nedostane uražený. Totéž byste mohli zkusit od redaktora &mdash; ale ten je dostupný v jednu středu v pět odpoledne.
+    <strong>Z Milošovy praxe:</strong> Takhle vzniká newsletter Inspiruj.se! AI dělá první draft a hlavně předtřídění &mdash; ale komentáře jsou moje. Draft komentáře od AI skoro vždycky přepíšu, jenže přepsat špatnou větu je desetkrát rychlejší než napsat první. To je celý princip: AI připraví hřiště, hrajete vy.
   </div>
   <div class="tip-box">
-    <strong>Tip:</strong> <em>„Žádné podlézání"</em> je explicitní instrukce proti modelové <em>sycophancy</em> &mdash; sklonu chválit. <em>„Já nejsem křehký"</em> vážně funguje. Modely si dávají pozor, aby vás neurazily, a tahle věta jim řekne, že nemusí.
+    <strong>Tip:</strong> Nejcennější věta je <em>„řekni mi, které jsi vyřadil a proč"</em>. Výběr je redakční práce &mdash; a když vidíte zdůvodnění, občas zjistíte, že AI vyřadila vaši nejlepší položku z hloupého důvodu. Kontrolujete výběr, ne pravopis.
   </div>
 </div>
 
-<!-- PROMPT 5 -->
-<div class="prompt-card" id="p5">
+<div class="prompt-card" id="p6">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">5</span> Rozvinout vtip / komediální rutinu <span class="tag tag-write">psaní</span></h3>
+    <h3><span class="prompt-number">6</span> Vědecká studie → čtivý článek <span class="tag tag-write">psaní</span></h3>
+    <p class="prompt-situation">Máte PDF plné p-hodnot a konfidenčních intervalů. Chcete článek, který si přečte i člověk, co statistiku naposledy viděl na gymplu &mdash; a přitom nezhloupne.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je vědecká studie:
+
+<span class="placeholder">[VLOŽTE PDF NEBO TEXT STUDIE]</span>
+
+Napiš z ní popularizační článek ve stylu Malcolma Gladwella nebo Davida Brookse — vyprávění, které nezhloupne.
+
+Struktura:
+1. Začni příběhem nebo konkrétní situací, kterou studie osvětluje. Ne „vědci z univerzity zjistili".
+2. Co přesně zkoumali a jak — metodu vysvětli tak, aby čtenář pochopil, čemu může věřit.
+3. Hlavní zjištění. S čísly. Uveď velikost efektu, ne jen že „efekt existuje".
+4. Co to NEznamená — limity, velikost vzorku, co studie neprokázala, jak by titulek v bulváru téma zkreslil.
+5. Co si z toho odnést do života. Konkrétně, bez moralizování.
+
+Pravidla:
+- Rozlišuj korelaci a kauzalitu. Vždy. Explicitně.
+- Najdi ve studii jednu pochybnost samotných autorů a cituj ji — v každé poctivé studii je.
+- Délka 800–1000 slov. Předpokládej čtenáře, který je chytrý, ale o tématu neví nic.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Takhle vzniká web vedcizjistili.cz &mdash; mám na to celý skill. Nejlepší na tom je bod 4: většina špatné vědecké žurnalistiky nevzniká lhaním, ale vynecháním limitů. Když článek sám řekne, co studie neprokázala, je poctivější než polovina titulků v novinách.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> <em>„Najdi pochybnost samotných autorů a cituj ji"</em> je trik, který zná málokdo. V sekci limitations autoři sami přiznávají slabiny &mdash; a citace z ní dodá článku důvěryhodnost, kterou žádný přídavný adjektiv nedodá.
+  </div>
+</div>
+
+<div class="prompt-card" id="p7">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">7</span> Rozvinout vtip / komediální rutinu <span class="tag tag-write">psaní</span></h3>
     <p class="prompt-situation">Máte v hlavě (nebo v zápiscích) zárodek vtipu. Premise, observation, jednu větu. Potřebujete to rozvinout do rutiny, najít další úhly, otestovat, jestli to vůbec drží.</p>
   </div>
   <div class="prompt-box">
@@ -718,18 +807,177 @@ Na konci přidej:
   </div>
 </div>
 
-<!-- ============================================ -->
-<!-- BLOK II: PŘEMÝŠLENÍ -->
-<!-- ============================================ -->
-<div class="section-header" id="blok2">
-  <h2>II. Přemýšlení &mdash; Research, ověřování, druhý mozek</h2>
-  <p class="section-desc">Pět promptů pro situace, kdy nepotřebujete psát, ale potřebujete vědět. Od proklepnutí firmy po sestavení vlastní paměti na celý život.</p>
+<div class="prompt-card" id="p8">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">8</span> Recenzent vína <span class="tag tag-write">psaní</span></h3>
+    <p class="prompt-situation">Ochutnali jste víno, které stojí za řeč. Chcete recenzi, která baví i čtenáře, co víno nepije &mdash; ne sommelierskou přednášku o tříslovinách.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi zkušený publicista, který píše čtivé recenze vín pro široké publikum. Spojuješ znalost vína s inteligentním humorem, lehkou ironií a vypravěčským stylem. Nepůsobíš snobsky ani příliš odborně.
+
+Podklady:
+<span class="placeholder">[NÁZEV VÍNA, VINAŘSTVÍ, ROČNÍK, ODRŮDA, FOTKA ETIKETY, VAŠE OSOBNÍ DOJMY]</span>
+
+Referenční texty:
+<span class="placeholder">[VLOŽTE 2–3 RECENZE, JEJICHŽ STYL SE MÁ NAPODOBIT]</span>
+
+Napiš recenzi o rozsahu přibližně 400 slov (±10 %).
+
+Nejdřív analyzuj referenční texty a co nejvěrněji napodob jejich rytmus, slovník, strukturu, míru humoru a ironie.
+
+Recenze by měla přirozeně plynout: začít silným obrazem nebo situací, nenásilně představit víno, popsat chuť konkrétně, ale srozumitelně, přidat osobní postřeh či interpretaci a skončit zapamatovatelnou pointou.
+
+Používej živý, obrazný jazyk. Vyhýbej se klišé (např. „harmonické víno s dlouhým závěrem") i encyklopedickému tónu. Piš tak, aby text bavil i čtenáře, který o víně mnoho neví.
+
+Drž se pouze informací z podkladů. Chybějící fakta nevymýšlej, ale můžeš rozvíjet atmosféru, emoce a vlastní interpretaci. Pokud je k dispozici fotografie etikety, krátce ji zakomponuj do textu jako součást příběhu nebo dojmu.
+
+Výstupem je jediná souvislá recenze připravená k publikaci, bez nadpisů, seznamů a odrážek.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Celý trik jsou referenční texty. Bez nich AI píše recenze jako z letáku supermarketu. S nimi píše v rytmu, který jí ukážete &mdash; klidně ve vašem vlastním, když jí dáte svoje starší recenze. Je to prompt 1 (trénink hlasu) v malém: místo pěti textů stačí dva tři, protože žánr je úzký.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Explicitní zákaz konkrétního klišé (<em>„harmonické víno s dlouhým závěrem"</em>) funguje líp než obecné „vyhýbej se klišé". Když modelu ukážete, jak přesně vypadá věta, kterou nechcete, pochopí celou kategorii.
+  </div>
 </div>
 
-<!-- PROMPT 6 -->
-<div class="prompt-card" id="p6">
+<!-- ============================================ -->
+<div class="section-header" id="blok2">
+  <h2>II. Čtení &mdash; Vytěžit z textu maximum</h2>
+  <p class="section-desc">Čtyři prompty pro čtení s tužkou v ruce. Neshrnovat, ale interpretovat, pochybovat a dolovat myšlenky, které se dají rozvíjet dál.</p>
+</div>
+
+<div class="prompt-card" id="p9">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">6</span> Deep research &mdash; strukturovaný briefing <span class="tag tag-think">myšlení</span></h3>
+    <h3><span class="prompt-number">9</span> Sumarizace na maximum <span class="tag tag-read">čtení</span></h3>
+    <p class="prompt-situation">Delší článek nebo studie. Nechcete jen vědět, „o čem to je" &mdash; chcete z textu vytěžit všechno, co v něm je, včetně toho, co autor neřekl nahlas.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je text:
+
+<span class="placeholder">[VLOŽTE ČLÁNEK, STUDII NEBO JINÝ DELŠÍ TEXT]</span>
+
+Tvým cílem není jen shrnout obsah, ale vytěžit z něj maximum hodnoty a nabídnout různé interpretace.
+
+1. Nejprve shrň text do pěti nejdůležitějších bodů (1–2 věty ke každému).
+
+2. Poté vyber 10 nejzajímavějších nebo nejméně známých informací a u každé stručně vysvětli, proč je významná nebo jak mění pohled na téma.
+
+3. Nakonec napiš dva krátké novinové komentáře (200–300 slov):
+   - jeden podporující hlavní teze textu a rozvíjející jejich důsledky,
+   - druhý kritický, který věcně zpochybňuje předpoklady nebo nabízí alternativní interpretaci.
+
+Oba komentáře mají být inteligentní, čtivé, lehce provokativní, místy vtipné a vycházet výhradně z obsahu textu. Vyhýbej se slaměným panákům i falešné rovnováze.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Můj denní pracovní kůň. Nejcennější jsou ty dva protichůdné komentáře &mdash; nutí model text <em>interpretovat</em>, ne parafrázovat. A mě nutí přemýšlet, na které straně vlastně stojím.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> <em>„Vyhýbej se slaměným panákům i falešné rovnováze"</em> je věta, bez které kritický komentář jen předstírá. Modely mají tendenci kritizovat zdvořile a vedle &mdash; tahle instrukce je donutí trefit skutečné slabé místo.
+  </div>
+</div>
+
+<div class="prompt-card" id="p10">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">10</span> Sumarizace přes otázky <span class="tag tag-read">čtení</span></h3>
+    <p class="prompt-situation">Rychlejší sourozenec předchozího promptu. Když nemáte čas na plnou pitvu, ale nechcete jen odstavec shrnutí, který zítra zapomenete.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je text:
+
+<span class="placeholder">[VLOŽTE TEXT]</span>
+
+Analyzuj ho a vytvoř pět otázek, jejichž odpovědi vystihnou jeho hlavní význam.
+
+Zaměř se na:
+- ústřední téma či argument,
+- podpůrné myšlenky,
+- klíčová fakta a důkazy,
+- autorův záměr nebo perspektivu,
+- hlavní důsledky či závěry.
+
+Poté na každou otázku podrobně odpověz.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Otázky fungují jako komprese: co se do pěti otázek nevejde, není podstatné. A formát otázka&ndash;odpověď se čte líp než odrážky, protože kopíruje, jak přemýšlíte &mdash; taky se textu v duchu ptáte. Používám na texty, které potřebuju znát, ale nebudu o nich psát.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Skvělé i obráceně: nechte si vygenerovat jen otázky, zkuste si na ně odpovědět sami &mdash; a pak se podívejte na odpovědi modelu. Nejrychlejší test, jestli jste text opravdu četli, nebo jen projeli očima.
+  </div>
+</div>
+
+<div class="prompt-card" id="p11">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">11</span> Jak porozumět eseji <span class="tag tag-read">čtení</span></h3>
+    <p class="prompt-situation">Dlouhý, hutný esej &mdash; New Yorker, Aeon, akademický blog. Nechcete shrnutí, chcete z něj vydolovat myšlenky, které se dají rozvíjet dál.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je esej:
+
+<span class="placeholder">[VLOŽTE TEXT]</span>
+
+Z textu vytěž maximum intelektuální hodnoty. Neshrnuj ho.
+
+1. Urči 10 nejzajímavějších informací, které mění perspektivu, a stručně vysvětli jejich význam.
+
+2. Poté vyber 5 hlubších myšlenek či implicitních idejí. Odliš, co je v textu a co z něj vyplývá. Popiš jejich originalitu a možné rozvinutí.
+
+3. Nakonec zvol ideu s největším disruptivním potenciálem. Rozveď její dopad, scénáře využití v horizontu 3–10 let, rizika a překážky.
+
+Piš analyticky, přesně, ambiciózně.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Klíčová je věta <em>„neshrnuj ho"</em>. Shrnutí je zpráva o textu; tohle je přemýšlení nad textem. Rozdíl mezi „co autor napsal" a „co z toho plyne" je přesně to, co odlišuje čtenáře od autora. A bod 3 &mdash; idea s disruptivním potenciálem &mdash; je moje zásobárna témat na sloupky.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Instrukce <em>„odliš, co je v textu a co z něj vyplývá"</em> je nenápadná pojistka proti tomu, aby vám model podsouval vlastní interpretace jako autorovy myšlenky. Chcete obojí &mdash; ale chcete vědět, co je co.
+  </div>
+</div>
+
+<div class="prompt-card" id="p12">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">12</span> Vědecký konsensus <span class="tag tag-read">čtení</span></h3>
+    <p class="prompt-situation">Kolik kávy je moc? Funguje přerušovaný půst? Chatboti na takové otázky rádi odpovídají sebejistě &mdash; i tam, kde věda jasno nemá. Tenhle prompt je donutí přiznat barvu.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi výzkumný analytik. Na zadanou vědeckou otázku vytvoř stručný deep-research přehled do 2 stran A4.
+
+Otázka: <span class="placeholder">[VAŠE OTÁZKA]</span>
+
+Shrň konsensus, spory a nejistoty. Odděluj fakta od interpretací. Opírej se hlavně o review, konsenzuální zprávy a klíčové empirické studie.
+
+Dodrž strukturu:
+1. Tl;dr jednou větou.
+2. Jistá zjištění v 5–8 bodech.
+3. Tabulka důkazů: zdroj / rok / metoda / závěr.
+4. Spory a nejistoty.
+5. Dopady pro praxi.
+6. Max. 12 ověřitelných odkazů včetně DOI / PubMed / reportů.
+
+Pokud konsensus chybí, řekni to a vysvětli proč.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tohle je můj filtr na zdravotní a vědecké titulky. Novinový článek říká „studie prokázala" &mdash; tenhle prompt řekne, jestli to prokázala jedna studie na dvaceti myších, nebo meta-analýza na sto tisících lidech. Tabulka zdroj/rok/metoda/závěr je nejrychlejší způsob, jak to poznat.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Nejdůležitější věta: <em>„Pokud konsensus chybí, řekni to a vysvětli proč."</em> Dává modelu explicitní povolení nevědět &mdash; a to je proti halucinacím účinnější než jakýkoliv zákaz. Spouštějte v deep research režimu, ať jsou odkazy skutečné.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<div class="section-header" id="blok3">
+  <h2>III. Research a příprava</h2>
+  <p class="section-desc">Pět promptů pro situace, kdy nepotřebujete psát, ale vědět. Od proklepnutí firmy po přípravu na nejtěžší otázky, které vám kdo může položit.</p>
+</div>
+
+<div class="prompt-card" id="p13">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">13</span> Deep research &mdash; strukturovaný briefing <span class="tag tag-think">myšlení</span></h3>
     <p class="prompt-situation">Potřebujete za hodinu vědět všechno o tématu, které jste včera neznali. Konference. Rozhovor. Článek. Investice.</p>
   </div>
   <div class="prompt-box">
@@ -765,10 +1013,9 @@ Délka: zhruba 5 stránek. Formát: čtivý text s mezititulky, ne tabulky. Zdro
   </div>
 </div>
 
-<!-- PROMPT 7 -->
-<div class="prompt-card" id="p7">
+<div class="prompt-card" id="p14">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">7</span> OSINT &mdash; proklepnutí osoby nebo firmy <span class="tag tag-think">myšlení</span></h3>
+    <h3><span class="prompt-number">14</span> OSINT &mdash; proklepnutí osoby nebo firmy <span class="tag tag-think">myšlení</span></h3>
     <p class="prompt-situation">Máte zítra schůzku, jednání, rozhovor. Chcete vědět, s kým máte tu čest. Z veřejných zdrojů, legálně.</p>
   </div>
   <div class="prompt-box">
@@ -808,10 +1055,84 @@ Vyhledávej aktuální informace.</pre>
   </div>
 </div>
 
-<!-- PROMPT 8 -->
-<div class="prompt-card" id="p8">
+<div class="prompt-card" id="p15">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">8</span> NotebookLM jako druhý mozek <span class="tag tag-think">myšlení</span></h3>
+    <h3><span class="prompt-number">15</span> Nepříjemné otázky &mdash; DVTV příprava <span class="tag tag-think">myšlení</span></h3>
+    <p class="prompt-situation">Jdete do rozhovoru. Na pódium. Na výslech. Chcete znát ty nejhorší otázky, které vám můžou položit &mdash; a mít na ně odpověď.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Připrav mě na náročný rozhovor / vystoupení.
+
+Kontext:
+- Kdo se mě bude ptát: <span class="placeholder">[jméno, médium, styl]</span>
+- O čem to bude: <span class="placeholder">[téma]</span>
+- Můj zájem: <span class="placeholder">[co potřebuju říct / čeho se chci vyhnout]</span>
+- Můj kontext: <span class="placeholder">[moje pozice, oblast, co mám nedávno za sebou]</span>
+
+Krok 1: napiš mi 10 nejtěžších otázek, které mi může ten konkrétní moderátor / novinář / oponent položit.
+
+Pravidla pro otázky:
+- Nesmí být generické. Musí vycházet z toho, co je o mně veřejně známo a co je v kontextu citlivé.
+- Tři z nich mají být přímé útoky.
+- Tři mají být zákeřné (vypadají nevinně, ale vedou na slepou ulici).
+- Čtyři mají být férové, ale obtížné.
+- U každé otázky řekni, kam ten moderátor míří — co chce z mé odpovědi vytáhnout.
+
+Krok 2: ke každé otázce navrhni:
+- Špatnou odpověď (co bych nejhůř zvládl — a proč by to byla katastrofa)
+- Bezpečnou odpověď (která nikomu neublíží, ale taky nic neřekne)
+- Dobrou odpověď (otevřená, ale s pevným rámem — jednu nebo dvě věty, žádný odstavec)
+
+Krok 3: tři otázky, na které bych se měl těšit. Co je můj příběh, který chci říct. Jak na ně dovedu rozhovor.
+
+Vyhledej, co o tom moderátorovi / médiu víš, abys otázky šil na míru.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tohle je prompt, který lidi z workshopů znají jako <em>„DVTV příprava"</em>. Kamarádovi jsme nahráli deset rozhovorů Veselovského, přidali OSINT a nechali AI vygenerovat deset nejtěžších otázek. Funguje to i obráceně &mdash; jako příprava novináře na rozhovor s hostem.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Trojí varianta odpovědi (špatná / bezpečná / dobrá) je klíčová. Většina lidí trénuje jen jednu odpověď. Když znáte všechny tři, víte, kam neuhnout, a víte, co je váš ideál. A třetí krok („otázky, na které se mám těšit") obrací perspektivu z obrany na příběh.
+  </div>
+</div>
+
+<div class="prompt-card" id="p16">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">16</span> Pětiodpověďový prompt <span class="tag tag-think">myšlení</span></h3>
+    <p class="prompt-situation">AI vám obvykle dá jednu „nejlepší" odpověď. To je nejhorší věc, kterou pro vás může udělat &mdash; tlačí všechnu nejistotu do jedné věty.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Místo jedné odpovědi mi dej pět napříč spektrem pravděpodobnosti.
+
+Otázka / úkol: <span class="placeholder">[SEM]</span>
+
+Pravidla:
+
+1. První odpověď nech ortodoxní. Co by řekl odborník v dané oblasti. „Standardní" pohled.
+2. Druhá odpověď nech většinovou. Co si myslí většina lidí, kteří se o tématu baví — ne nutně to samé, co odborník.
+3. Třetí odpověď nech jako kontrariánský pohled. Co je nepopulární, ale obhájitelné.
+4. Čtvrtá odpověď nech jako alternativní rámec. Co by se stalo, kdybychom otázku položili úplně jinak — jaký jiný úhel pohledu existuje?
+5. Pátá odpověď nech jako outsiderskou — co by řekl někdo, kdo není v oboru. Naivní, ale občas trefnější než expertní pohled.
+
+Ke každé odpovědi napiš:
+- Jádro v jedné větě.
+- Kdy se hodí.
+- Kdy je zavádějící.
+
+Na konci: která z těch pěti odpovědí je podle tebe nejméně reflektovaná v dnešní debatě. Vysvětli proč.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tohle je nejdůležitější prompt v celém kufříku. Když po AI chcete „jednu odpověď", komprimuje nejistotu do té jedné &mdash; to je kondenzát halucinace. Pět odpovědí to rozloží. Často je odpověď, kterou byste sami nezvolili, ta nejlepší. Pětka (outsiderský pohled) mi dala víc nečekaných uhlů, než cokoliv jiného.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Jednovětá změna <em>„dej mi odpověď"</em> → <em>„dej mi pět odpovědí napříč spektrem"</em> je nejvíc impactová věta v celém kufříku. Funguje na všechno &mdash; psaní, rozhodování, brainstorming, výběr restaurace.
+  </div>
+</div>
+
+<div class="prompt-card" id="p17">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">17</span> NotebookLM jako druhý mozek <span class="tag tag-think">myšlení</span></h3>
     <p class="prompt-situation">Máte na jednom místě podklady &mdash; papery, články, přepisy, knihy, podcasty. Nechcete je číst znovu, chcete je umět používat.</p>
   </div>
   <div class="prompt-box">
@@ -848,287 +1169,337 @@ Když se na něco zeptám později, odpovídej jen z nahraných zdrojů. Když t
   </div>
 </div>
 
-<!-- PROMPT 9 -->
-<div class="prompt-card" id="p9">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">9</span> Nepříjemné otázky &mdash; DVTV příprava <span class="tag tag-think">myšlení</span></h3>
-    <p class="prompt-situation">Jdete do rozhovoru. Na pódium. Na výslech. Chcete znát ty nejhorší otázky, které vám můžou položit &mdash; a mít na ně odpověď.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Připrav mě na náročný rozhovor / vystoupení.
-
-Kontext:
-- Kdo se mě bude ptát: <span class="placeholder">[jméno, médium, styl]</span>
-- O čem to bude: <span class="placeholder">[téma]</span>
-- Můj zájem: <span class="placeholder">[co potřebuju říct / čeho se chci vyhnout]</span>
-- Můj kontext: <span class="placeholder">[moje pozice, oblast, co mám nedávno za sebou]</span>
-
-Krok 1: napiš mi 10 nejtěžších otázek, které mi může ten konkrétní moderátor / novinář / oponent položit.
-
-Pravidla pro otázky:
-- Nesmí být generické. Musí vycházet z toho, co je o mně veřejně známo a co je v kontextu citlivé.
-- Tři z nich mají být přímé útoky.
-- Tři mají být zákeřné (vypadají nevinně, ale vedou na slepou ulici).
-- Čtyři mají být férové, ale obtížné.
-- U každé otázky řekni, kam ten moderátor míří — co chce z mé odpovědi vytáhnout.
-
-Krok 2: ke každé otázce navrhni:
-- Špatnou odpověď (co bych nejhůř zvládl — a proč by to byla katastrofa)
-- Bezpečnou odpověď (která nikomu neublíží, ale taky nic neřekne)
-- Dobrou odpověď (otevřená, ale s pevným rámem — jednu nebo dvě věty, žádný odstavec)
-
-Krok 3: tři otázky, na které bych se měl těšit. Co je můj příběh, který chci říct. Jak na ně dovedu rozhovor.
-
-Vyhledej, co o tom moderátorovi / médiu víš, abys otázky šil na míru.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tohle je prompt, který lidi z workshopů znají jako <em>„DVTV příprava"</em>. Kamarádovi jsme nahráli deset rozhovorů Veselovského, přidali OSINT a nechali AI vygenerovat deset nejtěžších otázek. Veselovský sám pak ocenil, že byly trefnější než ty, které si připravil. Funguje to i obráceně &mdash; jako příprava novináře na rozhovor s hostem.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Trojí varianta odpovědi (špatná / bezpečná / dobrá) je klíčová. Většina lidí trénuje jen jednu odpověď. Když znáte všechny tři, víte, kam neuhnout, a víte, co je váš ideál. A třetí krok („otázky, na které se mám těšit") obrací perspektivu z obrany na příběh.
-  </div>
-</div>
-
-<!-- PROMPT 10 -->
-<div class="prompt-card" id="p10">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">10</span> Pětiodpověďový prompt <span class="tag tag-think">myšlení</span></h3>
-    <p class="prompt-situation">AI vám obvykle dá jednu „nejlepší" odpověď. To je nejhorší věc, kterou pro vás může udělat &mdash; tlačí všechnu nejistotu do jedné věty.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Místo jedné odpovědi mi dej pět napříč spektrem pravděpodobnosti.
-
-Otázka / úkol: <span class="placeholder">[SEM]</span>
-
-Pravidla:
-
-1. První odpověď nech ortodoxní. Co by řekl odborník v dané oblasti. „Standardní" pohled.
-2. Druhá odpověď nech většinovou. Co si myslí většina lidí, kteří se o tématu baví — ne nutně to samé, co odborník.
-3. Třetí odpověď nech jako kontrariánský pohled. Co je nepopulární, ale obhájitelné.
-4. Čtvrtá odpověď nech jako alternativní rámec. Co by se stalo, kdybychom otázku položili úplně jinak — jaký jiný úhel pohledu existuje?
-5. Pátá odpověď nech jako outsiderskou — co by řekl někdo, kdo není v oboru. Naivní, ale občas trefnější než expertní pohled.
-
-Ke každé odpovědi napiš:
-- Jádro v jedné větě.
-- Kdy se hodí.
-- Kdy je zavádějící.
-
-Na konci: která z těch pěti odpovědí je podle tebe nejméně reflektovaná v dnešní debatě. Vysvětli proč.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tohle je nejdůležitější prompt v celém kufříku. Když po AI chcete „jednu odpověď", komprimuje nejistotu do té jedné &mdash; to je kondenzát halucinace. Pět odpovědí to rozloží. Často je odpověď, kterou byste sami nezvolili, ta nejlepší. Pětka (outsiderský pohled) mi dala víc nečekaných uhlů, než cokoliv jiného.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Jednovětá změna <em>„dej mi odpověď"</em> → <em>„dej mi pět odpovědí napříč spektrem"</em> je nejvíc impactová věta v celém kufříku. Funguje na všechno &mdash; psaní, rozhodování, brainstorming, výběr restaurace.
-  </div>
-</div>
-
-<!-- ============================================ -->
-<!-- BLOK III: KREATIVITA -->
-<!-- ============================================ -->
-<div class="section-header" id="blok3">
-  <h2>III. Kreativita &mdash; Z ničeho něco</h2>
-  <p class="section-desc">Pět promptů, které ukazují, že AI je nejsilnější ne tehdy, když píše místo vás, ale když si s vámi hraje. Multimodální překlad, hudba, klonování hlasu &mdash; to všechno za pár minut.</p>
-</div>
-
-<!-- PROMPT 11 -->
-<div class="prompt-card" id="p11">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">11</span> Mraveneček &mdash; multimodální kreativní řetěz <span class="tag tag-create">kreativita</span></h3>
-    <p class="prompt-situation">Chcete předvést sílu dnešních modelů. Jeden text, čtyři modely, čtyři transformace.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Workflow — čtyři modely, čtyři kroky:
-
-KROK 1 (ChatGPT):
-Tohle je česká dětská básnička:
-
-<span class="placeholder">[VLOŽTE TEXT — typicky „Polám se mraveneček"]</span>
-
-Přelož ji do série emoji tak, aby každý řádek odpovídal smyslu, ale aby tam neměla žádná česká slova. Drž rytmus — kolik slabik, tolik emoji.
-
-KROK 2 (Gemini nebo Claude — nový chat, předáš jen emoji):
-Tady je série emoji. Nevím, co znamená. Sestav z toho příběh, který by dával smysl v angličtině. Žánr: dětská básnička.
-
-KROK 3 (Claude):
-Tady je anglický příběh. Udělej z něj rýmovanou anglickou básničku pro děti. Drž jednoduchý rytmus a slovník dvanáctiletého dítěte.
-
-KROK 4 (Suno):
-Z téhle básničky vyrob písničku ve stylu <span class="placeholder">[folk / pop / electronic / country]</span>.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tohle je můj nejoblíbenější demo nástroj na workshopu. Ne proto, že je k něčemu &mdash; proto, že ukazuje <strong>typ uvažování</strong>, který si lidé bez toho dema neuvědomí. Modely se umí přepínat mezi médii s lehkostí, kterou žádný lidský tým neuvedl. Výsledek je překvapivě podobný originálu, i když prošel emoji a anglickou básničkou.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Ne jeden model. Čtyři. Každý dělá to, v čem je nejlepší. Trvá to pět minut. Dřív to byla práce na týden &mdash; překladatel, písničkář, hudebník, redaktor.
-  </div>
-</div>
-
-<!-- PROMPT 12 -->
-<div class="prompt-card" id="p12">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">12</span> Klonování hlasu &mdash; ElevenLabs <span class="tag tag-create">kreativita</span></h3>
-    <p class="prompt-situation">Máte text, který by měl znít. Vlastním hlasem. V cizím jazyce. Nebo hlasem někoho, koho jste se zeptali na svolení.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Workflow:
-
-1. Nahrání hlasového vzorku (1–3 minuty, čistý zvuk, bez ruchů). Tvůj vlastní hlas, nebo nahraný hlas se svolením.
-
-2. V ElevenLabs vyrobit klon. Voice ID si uložit.
-
-3. Text — buď napsaný, nebo nechaný od ChatGPT promptem:
-
-   „Tady je text, který chci přečíst hlasem. Než ho převedeš na zvuk, uprav ho tak, aby zněl jako mluvený, ne psaný. Konkrétně:
-   - Zkrať souvětí. Když je věta delší než 15 slov, rozděl ji.
-   - Přidej pauzy: tam, kde se má udělat krátká pauza, napiš tři tečky.
-   - Tam, kde má hlas zrychlit nebo zpomalit, naznač to (kurzívou, nebo závorkou s instrukcí).
-   - Nech tam zaváhání. Když to autor neřekne plynule, ať to neříká plynule ani klon."
-
-4. V ElevenLabs převést upravený text na zvuk vybraným klonem hlasu.
-
-5. Pokud má znít v jiném jazyce (jste Čech, chcete to anglicky):
-   - Nech ChatGPT text přeložit, ne strojově. Instrukce: „přelož idiomaticky, jako bych to psal anglicky od začátku, ne jako překlad."
-   - Pak teprve vlož do ElevenLabs.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> ElevenLabs sám funguje. Ale <strong>bez úpravy textu</strong> zní mluvený výstup strašně. Lidé v běžné řeči nedělají dokonalé věty. Zaváhají, opakují se, zrychlí, zpomalí. <em>„Když je věta delší než 15 slov, rozděl ji"</em> je klíč. Psaný text snese dlouhá souvětí. Mluvený ne.
-  </div>
-  <div class="tip-box">
-    <strong>Etika:</strong> Klon hlasu kohokoliv jiného než vašeho vlastního je šedá zóna. Klon hlasu žijícího člověka bez jeho svolení je v EU právně problematický (GDPR + ochrana osobnosti). Klonujte jen sebe a lidi, kteří vám to dovolili.
-  </div>
-</div>
-
-<!-- PROMPT 13 -->
-<div class="prompt-card" id="p13">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">13</span> Suno &mdash; písnička z textu <span class="tag tag-create">kreativita</span></h3>
-    <p class="prompt-situation">Máte text, oslavu, výročí, závěr workshopu, dárek. Chcete písničku &mdash; ne reálnou skladbu, ale něco, co lidi rozesměje nebo dojme.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Napiš mi text písničky pro Suno.
-
-Téma / příležitost: <span class="placeholder">[OSLAVA / KONFERENCE / DÁRKOVÁ / VTIPNÁ — co konkrétně]</span>
-
-Lidé, o kterých má být řeč: <span class="placeholder">[JMÉNA, POZICE, KONTEXT — čím vynikají, na co by je to rozesmálo]</span>
-
-Žánr: <span class="placeholder">[folk / pop / country / rap / rock / muzikál / synth]</span>
-
-Délka: 2–3 minuty (tj. dvě sloky, refrén dvakrát, mostek)
-
-Pravidla pro text:
-1. Refrén musí být chytlavý a opakovat se 3× — krátký, ne víc než 4 řádky.
-2. Sloky budou konkrétní — jména, historky, vnitřní vtipy. Ne obecné.
-3. Bridge / mostek má posun — žánr, emoce, tempo. Něco se má změnit.
-4. Závěr neopakuje refrén. Pointa.
-
-V Suno pak jako prompt zadej:
-- Žánr (přesně, ne „pop", ale „acoustic indie folk")
-- Tempo (slow / medium / upbeat)
-- Hlas (male / female / duet)
-- Náladu (warm / sad / energetic / sarcastic)
-
-Generuj 3 varianty a vyber.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tenhle prompt používám hlavně na uzávěr workshopů. Účastníci si poslední dvě hodiny nesou v hlavě tu písničku &mdash; a pamatují si víc, než kdybych měl shrnující slide. Sentin kufřík má strategické frameworky, můj má písničky. Obojí má smysl.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Suno generuje 2 varianty zdarma. Pro firmu má smysl placená verze (kolem 10 USD měsíčně). A hlavně: <em>nevkládejte do Suno přímo „pop". Vložte „acoustic indie folk with female vocals, slow tempo, melancholic mood".</em> Konkrétnost mění všechno.
-  </div>
-</div>
-
-<!-- PROMPT 14 -->
-<div class="prompt-card" id="p14">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">14</span> Brainstorming z celého spektra <span class="tag tag-create">kreativita</span></h3>
-    <p class="prompt-situation">Potřebujete nápady. AI vám obvykle dá pět bezpečných. Chcete dvacet &mdash; od konzervativních po šílené.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Brainstorm na: <span class="placeholder">[PROBLÉM / VÝZVA]</span>
-
-Tohle není „pět nejlepších nápadů". Tohle je z celého spektra pravděpodobnosti.
-
-Vygeneruj mi 20 nápadů.
-
-Rozložení:
-- 5 nápadů konzervativních (to, co by udělala většina lidí)
-- 5 nápadů poctivě inovativních (to, co se zatím nezkoušelo, ale dává smysl)
-- 5 nápadů experimentálních (riziko, ale potenciál)
-- 5 nápadů šílených (na hranici realistického; pirátské, ne korporátní)
-
-U každého nápadu:
-- Jádro v jedné větě
-- Odhadovaný dopad (1–5)
-- Odhadovaná náročnost (1–5)
-- Jeden důvod, proč by to nemuselo vyjít
-
-Na konci vyber:
-- Quick win — nápad s nejlepším poměrem dopad/náročnost, který se dá udělat tento týden.
-- Moonshot — nápad, ze kterého by se mohl stát game-changer, kdyby vyšel.
-- Nemilovaný favorit — nápad, který bych nevybral, ale měl bych ho aspoň zvážit.
-
-Pravidlo: nechci korporátní fráze. Žádné „synergie", „leverage", „transformační". Mluv jako pirát, ne jako konzultant.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Sentin kufřík má taky brainstorming &mdash; ona ho dělá strategicky, jako přípravu workshopu. Já ho dělám kreativně, jako přípravu článku nebo projektu. Magická věta z workshopů: <em>„Chci odpovědi z celého spektra pravděpodobnosti."</em> AI ji rozumí jako instrukci nešetřit. Použijte ji vždy, když chcete kreativní výstup.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> „20 nápadů" nutí AI překonat lenost. Prvních pět bývá generických. Mezi nápady 11–20 se objeví ty, kvůli kterým brainstorm děláte. A <em>„Nemilovaný favorit"</em> je proti potvrzovací zaujatosti &mdash; donutí AI navrhnout to, co byste sami zamítli.
-  </div>
-</div>
-
-<!-- PROMPT 15 -->
-<div class="prompt-card" id="p15">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">15</span> Slovo &mdash; hra s pravděpodobností jazyka <span class="tag tag-create">kreativita</span></h3>
-    <p class="prompt-situation">Chcete účastníkům workshopu ukázat, jak modely fungují. Ne diagramem. Ne tabulkou. Hrou.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Tady je věta s vynechaným posledním slovem:
-
-„V zahradnickém centru byla žena zcela <span class="placeholder">[SLOVO]</span>."
-
-Krok 1: dej mi 10 nejpravděpodobnějších slov, která by mohla doplnit. Seřaď od nejpravděpodobnějšího po nejméně.
-
-Krok 2: ke každému slovu napiš krátký komentář — proč je tam pravděpodobné. Co je v té větě signál pro to slovo.
-
-Krok 3: teď změním začátek věty:
-
-„Přijela policie, protože v zahradnickém centru byla žena zcela <span class="placeholder">[SLOVO]</span>."
-
-Dej mi znovu 10 nejpravděpodobnějších slov, seřazených. A porovnej: které slovo se vyšvihlo nejvíc nahoru? Které spadlo nejvíc dolů? Proč?
-
-Krok 4: na základě obou seznamů vysvětli, jak model „přemýšlí" o slovech — že nejde o vyhledávání, ale o pravděpodobnost na základě kontextu.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tenhle prompt jsem vyrobil pro demo na workshopu (aplikace <em>Slovo</em>). Je to nejlepší explainer LLM, jaký znám. Bez něj lidé chápou modely jako „chytrý Google". S ním pochopí, že je to pravděpodobnostní stroj, který v daném kontextu navrhuje, co je nejlogičtější další slovo.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Účastníci workshopu vidí v reálném čase, jak se kontext mění a jak se s ním mění pravděpodobnosti slov. Pochopí to za 3 minuty lépe než po hodině teorie. A magie je v tom, jak naprosto se posune slovo „opilá" mezi první větou a druhou.
-  </div>
-</div>
-
-<!-- ============================================ -->
-<!-- BLOK IV: KÓDOVÁNÍ -->
 <!-- ============================================ -->
 <div class="section-header" id="blok4">
-  <h2>IV. Kódování bez programátora &mdash; Vibecoding</h2>
-  <p class="section-desc">Pět promptů, které ukazují, že dnes nepotřebujete programátora, abyste si postavili vlastní aplikaci. Webovou. S databází. Nasazenou. Za hodinu.</p>
+  <h2>IV. Přepisy &mdash; Z nahrávky dokument</h2>
+  <p class="section-desc">Telefon nebo diktafon nahraje, AI udělá dokument. Tři varianty jednoho principu: rozhovor, příručka, kuchařka.</p>
 </div>
 
-<!-- PROMPT 16 -->
-<div class="prompt-card" id="p16">
+<div class="prompt-card" id="p18">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">16</span> HTML aplikace z popisu (canvas) <span class="tag tag-code">kód</span></h3>
-    <p class="prompt-situation">Máte nápad na malou užitečnou aplikaci. Kalkulačka, převodník, mini formulář, kvíz. Nechcete řešit framework, JavaScript bundler nebo CSS knihovny. Chcete to mít.</p>
+    <h3><span class="prompt-number">18</span> Podcast → psaný rozhovor <span class="tag tag-scribe">přepis</span></h3>
+    <p class="prompt-situation">Dvouhodinový podcast, skvělý host. Chcete z něj rozhovor, který se dá číst za deset minut &mdash; a přitom neztratí hlas ani atmosféru.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je přepis podcastu:
+
+<span class="placeholder">[VLOŽTE PŘEPIS — klidně surový, s přeřeky a nespisovnostmi]</span>
+
+Přetvoř ho na čtivý novinářský rozhovor o přibližně 30 logicky navazujících otázkách a odpovědích.
+
+Vyber nejdůležitější a nejzajímavější témata. Zachovej význam, emoce, přirozený tón i vztah účastníků, ale odstraň přeřeky, opakování a nespisovnosti.
+
+Piš jasně, srozumitelně a poutavě, bez nutnosti doslovných citací.
+
+Každou část označ „Otázka:" a „Odpověď:" a celý text uzavři do tagů &lt;rozhovor&gt;.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Z tohohle promptu se u mě stal celý skill &mdash; přidal jsem perex, tučné otázky a povinnou poznámku o tom, jaké zásahy jsem v textu udělal. Ta poznámka je novinářská poctivost: čtenář i host mají vědět, že text prošel úpravou. Ale jádro je pořád těchhle pár vět.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Číslo „přibližně 30 otázek" není náhoda &mdash; je to délka, která z dvouhodinového povídání udělá deset minut čtení. A upravený rozhovor vždycky pošlete hostovi k autorizaci. AI zkracuje výborně, ale o tom, co host řekl, rozhoduje host.
+  </div>
+</div>
+
+<div class="prompt-card" id="p19">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">19</span> Přednáška → studijní příručka <span class="tag tag-scribe">přepis</span></h3>
+    <p class="prompt-situation">Odpřednášeli jste workshop. Nebo jste na skvělé přednášce seděli. Máte nahrávku &mdash; a z ní může do druhého dne existovat dokument, který si účastníci nechají.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je přepis přednášky / workshopu:
+
+<span class="placeholder">[VLOŽTE PŘEPIS — klidně surový, s přeřeky, ideálně s rozlišením mluvčích]</span>
+
+Udělej z něj studijní příručku pro účastníky.
+
+Struktura:
+1. Úvodní shrnutí — o čem to bylo, jeden odstavec.
+2. Kapitoly podle skutečných bloků přednášky. Mezititulky stručné, deklarativní.
+3. Klíčové momenty a citace přednášejícího — doslova. Mluvený jazyk nech mluvený, v tom je jeho síla.
+4. Praktické tipy vytažené do samostatných rámečků.
+5. Na konci akční checklist: co má účastník udělat do týdne.
+
+Pravidla:
+- Odstraň vatu, opakování a přeřeky. Spoj informace, které v přednášce zazněly na třech místech.
+- Nedoplňuj vlastní znalosti. Co v přepisu není, v příručce nebude.
+- Nejasná místa přepisu označ [NEJASNÉ V PŘEPISU], ne domýšlej.
+- Piš česky, čtivě, ne akademicky.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tohle je můj standardní workflow po každém workshopu: Plaud nahraje, ElevenLabs přepíše s rozlišením mluvčích, tenhle prompt vyrobí příručku. Účastníci ji mají v mailu do druhého dne &mdash; a je to věc, kterou si z workshopu pamatují nejdéle. Dřív by to byl týden práce. Teď je to hodina, z toho 50 minut běží přepis.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> <em>„Nedoplňuj vlastní znalosti"</em> je klíčové pravidlo. Bez něj model příručku „vylepší" o věci, které na workshopu nezazněly &mdash; a účastník pak marně vzpomíná, kdy se to říkalo. Příručka je zápis, ne učebnice.
+  </div>
+</div>
+
+<div class="prompt-card" id="p20">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">20</span> Kuchařský kurz → kuchařka <span class="tag tag-scribe">přepis</span></h3>
+    <p class="prompt-situation">Stejný princip jako příručka z přednášky, ale v civilu: byli jste na kurzu vaření, nahráli jste si ho &mdash; a chcete si odnést víc než zážitek a mastné poznámky.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Tady je přepis kuchařského kurzu:
+
+<span class="placeholder">[VLOŽTE PŘEPIS NAHRÁVKY]</span>
+
+Zpracuj ho do čtivého materiálu pro hobby kuchaře. Vytvoř:
+
+1. Podrobné čtyřstránkové shrnutí konkrétních technik, postupů, surovin, časů, teplot, chyb a doporučení.
+
+2. Všechny dostatečně zachycené recepty ve formátu: charakteristika, počet porcí, suroviny, číslovaný postup, poznámky — a u každého uveď míru úplnosti (co v přepisu chybělo).
+
+3. 10–20 nejlepších triků s vysvětlením, proč fungují a kdy se hodí.
+
+4. Závěrečný seznam nejasností — na co se příště zeptat.
+
+Odstraň opakování a vatu, spoj rozptýlené informace, ale nic nedoplňuj z vlastních znalostí. Chybějící údaje nevymýšlej. Rozpory a nejisté přepisy výslovně označ.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Nejlepší důkaz, že „přepis → dokument" není jen pracovní nástroj. Kuchař na kurzu řekne deset zásadních věcí mimochodem, mezi mícháním &mdash; a přesně ty si nezapíšete. Nahrávka je zachytí všechny. Sekce triků s vysvětlením „proč to funguje" je pak lepší než leckterá kuchařka.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> „Míra úplnosti" u receptů je chytrá pojistka: přepis nikdy nezachytí všechno (kolik soli? jak dlouho?) a je lepší to vědět, než to zjistit v neděli u trouby. Funguje na jakýkoliv kurz &mdash; keramika, fotografie, tanec.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<div class="section-header" id="blok5">
+  <h2>V. Kreativita a hra</h2>
+  <p class="section-desc">Čtyři prompty na hraní: fiktivní historie, vysvětlování jako test vlastního porozumění a dva obrazové styly s nezaměnitelným rukopisem.</p>
+</div>
+
+<div class="prompt-card" id="p21">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">21</span> Wiki fiktivní osobnosti <span class="tag tag-create">kreativita</span></h3>
+    <p class="prompt-situation">Hra s historií: dáte rok, místo a pár slov &mdash; a dostanete člověka, který nikdy nežil, ale mohl. Včetně wikipedického hesla psaného z perspektivy jeho doby.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi historik a autor biografií.
+
+Vstup: <span class="placeholder">[ROK, MÍSTO A STRUČNÝ POPIS OSOBY — např. „1923, Plzeň, majitelka fotografického ateliéru"]</span>
+
+Vytvoř realistickou fiktivní historickou postavu, která přesně odpovídá době a místu. Navrhni vhodné jméno, rozpracuj původ, vzdělání, společenské postavení, kariéru, důležité životní události, názory, psychologii i vliv historického prostředí.
+
+Nejprve stručně uveď:
+1. Historický kontext.
+2. Několik návrhů jména a povolání.
+3. Finální profil postavy.
+4. Osnovu článku.
+
+Poté vrať:
+1. Krátké shrnutí osoby (jméno, věk, povolání, hlavní charakteristiky).
+2. Přibližně 300slovný článek ve stylu Wikipedie s částmi: úvod, osobní historie, vzdělání a kariéra, významné události, názory a psychologie, historický kontext, závěr.
+
+Piš věcným encyklopedickým stylem a z pohledu zadaného roku, jako by postava právě žila. Nepoužívej informace ani perspektivu z budoucnosti. Zachovej historickou věrohodnost.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Nejzajímavější na tomhle promptu je omezení <em>„z pohledu zadaného roku"</em>. Postava z roku 1923 nesmí tušit, co přijde &mdash; a model to většinou zvládne, což je fascinující ukázka toho, jak umí držet dobovou perspektivu. Skvělý základ pro fikci: postava vygenerovaná takhle má víc masa než postava vymyšlená od nuly.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Zkuste postavu nechat „dožít": v dalším promptu posuňte rok o dvacet let a nechte heslo přepsat. Sledovat, co model s postavou udělá mezi lety 1923 a 1943, je lekce z historie i z vyprávění. A pro učitele dějepisu je tohle hotová hodina.
+  </div>
+</div>
+
+<div class="prompt-card" id="p22">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">22</span> Vysvětli to osmiletému <span class="tag tag-create">kreativita</span></h3>
+    <p class="prompt-situation">Myslíte si, že něčemu rozumíte? Nechte si to vysvětlit třikrát &mdash; pro dítě, pro puberťáka, pro babičku. Kde se vysvětlení rozpadne, tam je díra ve vašem vlastním porozumění.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Vysvětli mi <span class="placeholder">[TÉMA — např. jak fungují velké jazykové modely]</span> třikrát:
+
+1. Osmiletému dítěti. Příběh nebo přirovnání ze světa, který zná — škola, hřiště, zvířata. Žádná cizí slova.
+
+2. Patnáctiletému. Technika už smí, ale každý pojem vysvětli v půlvětě. Přidej jeden příklad, který si může sám vyzkoušet.
+
+3. Babičce, která nikdy nepoužila počítač. Přirovnání ze světa, který zná ona — vaření, zahrada, pošta.
+
+Pak přidej dvě věci:
+- Co se ve všech třech verzích muselo zjednodušit tak, že to už není úplně pravda.
+- Jednu věc, kterou z tématu nejde zjednodušit vůbec — a proč.
+
+Nakonec kvíz: 3 otázky pro osmileté dítě, jestli to pochopilo.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Napsal jsem s AI příručku o jazykových modelech pro děti 8–10 let, s poznámkami pro učitele. A zjistil jsem při tom o LLM víc než z leckterého odborného textu &mdash; protože zjednodušování nemilosrdně odhalí, čemu sami nerozumíte. Feynman to říkal dávno před AI: co neumíte vysvětlit jednoduše, neumíte vůbec.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Nejcennější je sekce <em>„co už není úplně pravda"</em>. Každé zjednodušení něco obětuje &mdash; a seznam těch obětí je mapa vašich vlastních zkreslení. Skvělé i pro přípravu na přednášku: babiččina verze je často ta, kterou nakonec použijete na pódiu.
+  </div>
+</div>
+
+<div class="prompt-card" id="p23">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">23</span> Jednoliniová kresba <span class="tag tag-create">kreativita</span></h3>
+    <p class="prompt-situation">Prompt pro generátor obrázků. Potřebujete ilustraci k článku, prezentaci nebo webu &mdash; a chcete jednotný, kultivovaný styl místo AI kýče.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Motiv: <span class="placeholder">[CO NAKRESLIT — např. „člověk čtoucí noviny v tramvaji"]</span>
+
+Vytvoř velmi minimalistickou jednoliniovou kresbu černým inkoustem na čistě bílém pozadí. Celý motiv zachyť jedinou plynulou, souvislou linií, která se pokud možno nezvedá z papíru. Tah má být elegantní, výrazný, lehce nepravidelný a ručně působící.
+
+Použij jednoduché, ale čitelné a expresivní detaily, mírnou abstrakci a velkorysý prázdný prostor.
+
+Bez barev, stínování, výplní, textur a realistického modelování; pouze čisté černé obrysy v moderním, kultivovaném skicovém stylu.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Půlku práce v tomhle promptu dělají negativní instrukce &mdash; <em>bez barev, bez stínování, bez textur</em>. Generátory obrázků mají pud všechno vyzdobit; tady jim to zakážete a výsledek vypadá jako skica z drahého časopisu. Uložený prompt + měnící se motiv = jednotná vizuální identita zadarmo.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Funguje v ChatGPT, Gemini i Midjourney. A právě konzistence je ta hodnota: deset ilustrací jedním stylem vypadá jako záměr, deset různých AI obrázků jako nástěnka. Když styl omrzí, vyměňte jednu větu („černým inkoustem" → „modrou pastelkou") a máte novou řadu.
+  </div>
+</div>
+
+<div class="prompt-card" id="p24">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">24</span> Dětská kresba pastelkami <span class="tag tag-create">kreativita</span></h3>
+    <p class="prompt-situation">Druhý obrazový prompt &mdash; opačná disciplína. AI umí dokonalost snadno; tady po ní chcete autentickou nedokonalost. A ta se musí popsat překvapivě přesně.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Motiv: <span class="placeholder">[CO NAKRESLIT — nebo vložte fotografii, kterou má AI překreslit]</span>
+
+Autentická dětská kresba vytvořená pastelkami na čistém bílém papíře, jako by ji nakreslilo přibližně pětileté dítě.
+
+Jednoduché, nejisté a místy roztřesené čáry, nepravidelně vybarvené plochy, barva často přetahuje přes obrysy a někde zůstávají bílá místa.
+
+Typické dětské chyby v proporcích: příliš velké hlavy, krátké nebo různě dlouhé končetiny, nápadně velké ruce, nestejně velké oči a předměty bez realistického měřítka.
+
+Naivní perspektiva: objekty se překrývají nelogicky, vzdálené věci nejsou menší, stůl či dům působí nakřivo a postavy vypadají, jako by se vznášely.
+
+Omezená, spontánně zvolená paleta výrazných barev. Kresba má působit bezprostředně, trochu chaoticky a skutečně dětsky — nikoli jako uhlazená ilustrace dospělého napodobujícího dětský styl.
+
+Viditelná textura voskových pastelek a jemná struktura papíru, žádné stínování, žádná profesionální kompozice, žádný text.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tenhle prompt je malá lekce prompt engineeringu: „nakresli to jako dítě" nefunguje &mdash; vyleze uhlazená ilustrace dospělého, který dítě napodobuje. Musíte popsat, <em>jak přesně</em> pětileté dítě chybuje: velké hlavy, přetahování přes obrysy, létající postavy. Nedokonalost je potřeba vyspecifikovat pečlivěji než dokonalost.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Nejlepší použití: vložte fotku (rodinnou, z dovolené, z kanceláře) a nechte ji překreslit. Výsledek vypadá jako z lednice se suvenýry ze školky &mdash; a jako dárek nebo slide do prezentace je to spolehlivý zásah.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<div class="section-header" id="blok6">
+  <h2>VI. Život s AI</h2>
+  <p class="section-desc">AI mimo pracovnu: víkend, vinařství, ranní káva. Tři prompty, které nejlíp ukazují, jak vypadá každodennost s asistentem.</p>
+</div>
+
+<div class="prompt-card" id="p25">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">25</span> Weekend planner <span class="tag tag-life">život</span></h3>
+    <p class="prompt-situation">Jedete na víkend do města. Nechcete deset nejnavštěvovanějších míst z prvního výsledku Googlu &mdash; chcete víkend, který by si naplánoval člověk, co to město zná.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi travel designer pro náročného klienta.
+
+Vstup:
+- Lokalita: <span class="placeholder">[MĚSTO / REGION]</span>
+- Termín: <span class="placeholder">[DATUM]</span>, příjezd <span class="placeholder">[KDY]</span>, odjezd <span class="placeholder">[KDY]</span>
+- Preference: <span class="placeholder">[CO VÁS BAVÍ — kultura, jídlo, technologie, architektura… a co nesnášíte]</span>
+
+Navrhni konkrétní víkendový itinerář bez turistických pastí: chytrý mix kultury, gastronomie, technologií/byznysu, lokálních příběhů, nebanálních míst a lehkého komfortu.
+
+Ověř aktuální podniky, výstavy, akce a rezervace.
+
+Struktura:
+1. Koncept víkendu — jaký příběh ten víkend vypráví.
+2. Detailní plán po dnech a blocích — u každého bloku důvod a praktický tip.
+3. Gastro tipy.
+4. 3–5 smart moments — malé zážitky, které víkend povýší.
+5. Alternativy pro špatné počasí.
+6. Přesuny, rezervace, časové odhady.
+7. Bonus: jeden conversation starter o místě, který večer u vína ohromí.
+
+Odděluj fakta, doporučení a tipy navíc. Piš přehledně, konkrétně, inteligentně a lehce ironicky.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Rozdíl mezi „co navštívit v Brně" a tímhle promptem je rozdíl mezi letákem a známým, který ve městě žije. Klíčová je věta o <em>ověření aktuálních podniků a akcí</em> &mdash; model bez ní doporučí bistro, které tři roky neexistuje. A „koncept víkendu" zní pateticky, ale funguje: víkend s příběhem se pamatuje, seznam míst ne.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Napište i to, co nesnášíte. „Nechci fronty, nákupní centra a vyhlídková kola" zpřesní itinerář víc než deset preferencí. A sekce „smart moments" je to, co odlišuje AI itinerář od průvodce &mdash; chtějte je vždycky.
+  </div>
+</div>
+
+<div class="prompt-card" id="p26">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">26</span> Analytik vína na cestách <span class="tag tag-life">život</span></h3>
+    <p class="prompt-situation">Stojíte ve vinařství, za chvíli přijde vinař. Vyfotíte etiketu &mdash; a za pět minut se s ním bavíte o výnosech a půdě místo „hm, dobré".</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Jsi analytik vína, vinařských regionů a vinařských značek.
+
+<span class="placeholder">[VLOŽTE FOTOGRAFII ETIKETY nebo přepis údajů z ní]</span>
+
+Připrav podklady pro inteligentní rozhovor s vinařem. Pracuj primárně s informacemi na etiketě; doplňuj pouze obecně známý a ověřený kontext regionu nebo apelace. Nevymýšlej si fakta. Pokud něco nelze spolehlivě doložit, označ to jako hypotézu nebo formuluj jako otázku.
+
+Výstup ve třech částech:
+
+1. Základní fakta — název vína, vinařství, region či apelace, ročník, odrůda nebo styl, obsah alkoholu a všechny další technické údaje z etikety (výnos, typ půdy, nadmořská výška, způsob sklizně, zrání…).
+
+2. Pět skutečně zajímavých aspektů vína, vinařství nebo oblasti. Konkrétní a méně běžné informace — význam nízkého výnosu, vliv geologie, nadmořské výšky, specifika apelace, klimatické podmínky ročníku. Každý bod vysvětli ve 3–5 větách a řekni, proč je významný.
+
+3. Pět konkrétních, inteligentních otázek do rozhovoru. Každá musí vycházet z údajů na etiketě nebo ze specifik regionu. Žádné obecné otázky o vinařově kariéře nebo filozofii.
+
+Piš jasně, strukturovaně, konkrétně. Žádný poetický jazyk, žádná marketingová klišé, žádné hodnotící soudy. Nechval ani nekritizuj — analyzuj.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Tohle je můj cestovní společník po vinařstvích. Vinaři jsou zvyklí na dva typy návštěvníků: na ty, co nic nevědí, a na ty, co všechno vědí líp. Návštěvník, který se zeptá na konkrétní výnos z konkrétní parcely, protože si ho přečetl na etiketě, je třetí kategorie &mdash; a s tou se vinaři baví úplně jinak.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Věta <em>„označ jako hypotézu nebo formuluj jako otázku"</em> je protihalucinační pojistka &mdash; nejistota se promění v otázku pro vinaře, což je přesně to, co potřebujete. Funguje i v restauraci nad vinným lístkem, jen otázky pokládáte sommelierovi.
+  </div>
+</div>
+
+<div class="prompt-card" id="p27">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">27</span> Ranní briefing — AI s přístupem k poště a kalendáři <span class="tag tag-life">život</span></h3>
+    <p class="prompt-situation">Největší posun poslední doby: chatbot, který nejen radí, ale sahá vám (s dovolením) do pošty a kalendáře. Vyžaduje připojené nástroje &mdash; v Claude konektory, v ChatGPT propojené aplikace.</p>
+  </div>
+  <div class="prompt-box">
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
+    <pre>Připrav mi ranní briefing.
+
+1. Kalendář: co mě dnes čeká, kde se schůzky tlučou a kolik mám skutečně souvislého času na práci.
+
+2. E-mail: projdi nepřečtené za posledních 24 hodin. Rozděl do tří kategorií: musím řešit dnes / počká / smazat bez čtení. U kategorie „musím dnes" navrhni odpověď jednou větou.
+
+3. Co mi hrozí: deadline nebo slib, na který jsem podle kalendáře a mailů zapomněl.
+
+4. Jedna věc, kterou bych dnes měl udělat, i když ji po mně nikdo nechce.
+
+Formát: přehledně, do 300 slov. Neopisuj celé maily, shrnuj. Nic neodesílej — odpovědi připrav jen jako návrhy.
+
+Na konci jedna povzbudivá věta. Ne korporátní.</pre>
+  </div>
+  <div class="story-box">
+    <strong>Z Milošovy praxe:</strong> Mám na tohle vlastní skill, který se dá spustit jedním příkazem &mdash; ale i bez skillu to funguje, stačí připojený Gmail a kalendář. Bod 3 („na co jsem zapomněl") je důvod, proč to dělám: AI vidí slib v mailu z minulého úterý, který já už nevidím. A bod 4 je malá denní terapie proti reaktivnímu režimu.
+  </div>
+  <div class="tip-box">
+    <strong>Tip:</strong> Začněte read-only: číst poštu ano, odesílat ne. Věta <em>„nic neodesílej, odpovědi jen jako návrhy"</em> je v promptu schválně &mdash; důvěru agentnímu AI dávejte postupně, jako novému asistentovi. Za měsíc mu možná dovolíte drafty ukládat. Za rok&hellip; uvidíte.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<div class="section-header" id="blok7">
+  <h2>VII. Tvorba &mdash; AI s rukama</h2>
+  <p class="section-desc">Od chatbota, který radí, k asistentovi, který staví. Aplikace v chatu, naučený workflow, prezentace rovnou z konverzace.</p>
+</div>
+
+<div class="prompt-card" id="p28">
+  <div class="prompt-card-header">
+    <h3><span class="prompt-number">28</span> Výpomocná HTML aplikace v chatu <span class="tag tag-code">kód</span></h3>
+    <p class="prompt-situation">Máte nápad na malou užitečnou aplikaci. Kalkulačka, převodník, kvíz, formulář. Nechcete řešit frameworky ani vývojové prostředí &mdash; chcete ji mít. Rovnou v chatbotu.</p>
   </div>
   <div class="prompt-box">
     <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
@@ -1139,81 +1510,26 @@ Krok 4: na základě obou seznamů vysvětli, jak model „přemýšlí" o slove
 Pravidla pro kód:
 
 1. Jeden soubor. HTML + CSS + vanilla JavaScript v jednom. Žádné externí knihovny.
-2. Otevři to v canvasu (Claude Artifact / ChatGPT Canvas).
-3. Design:
-   - Čistý, moderní (CSS grid / flexbox, custom properties).
-   - Mobilní + desktop responsive.
-   - Tmavý / světlý režim podle preferencí systému (prefers-color-scheme).
-   - Žádný framework. Žádný Tailwind. Vanilla CSS.
-4. Data:
-   - Pokud aplikace ukládá data, použij localStorage. Ne cookies. Ne externí backend.
-   - Pokud aplikace pracuje s daty od uživatele, validuj vstup.
+2. Otevři to v canvasu (Claude Artifact / ChatGPT Canvas), ať to vidím a můžu hned zkoušet.
+3. Design: čistý, moderní, responsive (mobil i desktop), tmavý/světlý režim podle systému.
+4. Data: pokud aplikace něco ukládá, použij localStorage. Žádný backend, žádné cookies.
 5. Komentáře v kódu česky — vysvětluj záměr, ne syntaxi.
 
 Předem mi polož 3 otázky o tom, jak má aplikace fungovat, než začneš psát kód.
 
-Až bude hotová verze 1, dáš mi jednu větu, co by stálo za to přidat.</pre>
+Až bude hotová verze 1, dáš mi jednu větu: co by stálo za to přidat.</pre>
   </div>
   <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Z tohohle workflow vznikla aplikace <em>Slovo</em>, aplikace <em>10 promptů pro šéfy rodinných zahradnických firem</em>, aplikace pro plánování workshopů. Žádná z nich nemá víc než 20 kB. Pro srovnání: ten samý obsah ve Wordu by zabral 200 kB a vypadal ošklivě.
+    <strong>Z Milošovy praxe:</strong> Z tohohle workflow vznikly kvízy na workshopy, plánovače, kalkulačky. Žádná nemá víc než pár desítek kB. <em>„Jeden soubor"</em> je kouzelné slovo &mdash; bez něj AI postaví React projekt s NPM závislostmi, kterému jako neprogramátor nerozumíte. A <em>„otevři to v canvasu"</em> znamená, že aplikaci vidíte a klikáte na ni přímo v chatu.
   </div>
   <div class="tip-box">
-    <strong>Tip:</strong> <em>„Jeden soubor"</em> je kouzelné slovo. Bez něj AI postaví React projekt s NPM dependencies, kterému jako neprogramátor nerozumíte. A <em>„otevři to v canvasu"</em> je klíčové &mdash; bez něj vám AI ten kód jen vypíše do chatu a vy ho musíte zkopírovat.
+    <strong>Tip:</strong> Když chcete aplikaci dát světu: stáhněte HTML soubor, přetáhněte na netlify.com &mdash; a za minutu je online na veřejné adrese. A když se později rozbije: vložte celý soubor zpátky do chatu, popište problém a přikažte <em>„žádné velké refaktoringy, oprav jen to, co je rozbité"</em>. Bez té věty vám AI při opravě jedné funkce přepíše půlku aplikace.
   </div>
 </div>
 
-<!-- PROMPT 17 -->
-<div class="prompt-card" id="p17">
+<div class="prompt-card" id="p29">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">17</span> Single-page web + nasazení na Netlify <span class="tag tag-code">kód</span></h3>
-    <p class="prompt-situation">Chcete vyrobit malý web &mdash; landing page, mini katalog, online vizitku. Chcete ho mít online, aby ho viděli lidé. Ne hodinu, ne den. Pět minut.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Workflow:
-
-1. V ChatGPT / Claude:
-
-„Postav mi single-page web. Popis:
-
-<span class="placeholder">[POPIS — co je na webu, kdo ho navštíví, jaký je cíl]</span>
-
-Pravidla:
-- Single-file HTML. Otevři v canvasu.
-- Vanilla. Žádný framework. CSS Grid + Flexbox + custom properties.
-- Pokud má formulář, nech ho funkční s mailem přes mailto:, nebo si vyžádej, ať udělám backend (viz krok 3).
-- Lokální ukládání přes localStorage, pokud aplikace cokoliv pamatuje.
-- SEO základ (meta description, og: tagy).
-- Responsive, dark/light mode podle systému."
-
-2. Stažení a otestování:
-Stáhnout HTML, otevřít lokálně, otestovat.
-
-3. Pokud potřebujete ukládat data:
-„Přidej do té aplikace backend. Použij Firebase. Ukládej tam [DATA] s timestamp a unique ID. Při startu aplikace načítej posledních 100 položek. Bezpečnost: read-only veřejně, write přes vlastní auth."
-
-4. Nasazení (Netlify):
-- netlify.com → přihlášení googlovým účtem
-- Drag & drop HTML souboru
-- Nastavit název (např. inspirujse-2026)
-- Aplikace je za 5 sekund na URL inspirujse-2026.netlify.app
-
-5. Custom doména (volitelné):
-- V DNS přidat CNAME na netlify.app
-- Za dvě hodiny běží na vlastní doméně.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tohle není development. Tohle je řemeslo přírodního národa, který si umí postavit chatu. Ne mrakodrap. Když potřebuju rychle něco zveřejnit &mdash; recepty, demo aplikaci pro workshop, prototyp myšlenky &mdash; nejde to rychleji než takhle.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> Firebase místo vlastního serveru je nejjednodušší cesta k tomu, aby aplikace měla i backend, aniž byste se učili Docker. Netlify drag & drop je jediný způsob, jak dostat HTML na internet bez práce s git, deploymentem, CI/CD.
-  </div>
-</div>
-
-<!-- PROMPT 18 -->
-<div class="prompt-card" id="p18">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">18</span> Skill &mdash; opakovaný workflow pro Claude Code <span class="tag tag-code">kód</span></h3>
+    <h3><span class="prompt-number">29</span> Skill &mdash; opakovaný workflow pro Claude Code <span class="tag tag-code">kód</span></h3>
     <p class="prompt-situation">Máte opakovaný postup. Nahrávka → přepis → strukturovaný zápis → příručka. Děláte ho každý měsíc, vždycky stejně. Nechcete ho dělat ručně.</p>
   </div>
   <div class="prompt-box">
@@ -1247,90 +1563,38 @@ Až budeš mít skill hotový, nech ho otestovat na ukázkovém vstupu, který t
   </div>
 </div>
 
-<!-- PROMPT 19 -->
-<div class="prompt-card" id="p19">
+<div class="prompt-card" id="p30">
   <div class="prompt-card-header">
-    <h3><span class="prompt-number">19</span> Debugging vlastní aplikace <span class="tag tag-code">kód</span></h3>
-    <p class="prompt-situation">Aplikace, kterou vám vyrobil ChatGPT před třemi týdny, najednou nefunguje. Nebo funguje, ale ne tak, jak má. A vy nejste programátor.</p>
+    <h3><span class="prompt-number">30</span> Prezentace ze záznamu přednášky (Gamma) <span class="tag tag-code">kód</span></h3>
+    <p class="prompt-situation">Odpřednášeli jste. Máte nahrávku. Účastníci chtějí „slidy" &mdash; jenže vy jste přednášeli bez slidů, nebo s jinými, než co zaznělo. Prezentace vznikne zpětně, ze záznamu.</p>
   </div>
   <div class="prompt-box">
     <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>Tady je moje aplikace:
+    <pre>Tady je přepis mé přednášky:
 
-<span class="placeholder">[VLOŽTE HTML SOUBOR — celý]</span>
+<span class="placeholder">[VLOŽTE PŘEPIS — klidně surový, s přeřeky]</span>
 
-Problém:
-<span class="placeholder">[POPIŠTE — co se má dít, co se děje místo toho, kde to selhává]</span>
+Úkol: udělej z toho prezentaci, kterou pošlu účastníkům jako připomínku.
 
-Krok 1: než budeš opravovat, vysvětli mi v 5 větách, jak ta aplikace funguje. Cíl: pochopit, jestli jsi rozuměl mému kódu.
+Krok 1: Vytáhni z přepisu kostru — hlavní argument, 8–12 klíčových myšlenek a nejlepší historky a citáty (doslova; ty jsou cennější než teze).
 
-Krok 2: identifikuj problém. Buď konkrétní — řádek, funkce, logika.
+Krok 2: Postav outline prezentace:
+- Jeden slide = jedna myšlenka. H2 nadpis + max 4 body + poznámka pro řečníka.
+- První slide: hook z nejsilnějšího momentu přednášky.
+- Poslední slide: co si má publikum odnést.
+- Žádný slide „obsah" ani „děkuji za pozornost".
 
-Krok 3: navrhni opravu. Ukaž ji jako diff, ne jako celý soubor. Já chci vidět, co konkrétně měníš.
+Krok 3:
+<span class="placeholder">[VARIANTA A — máte Gamma konektor]</span> Vygeneruj z outline prezentaci přímo v Gammě. Režim condense, ať text nenafoukneš.
+<span class="placeholder">[VARIANTA B — nemáte]</span> Dej mi outline v markdownu, vložím ho do Gammy ručně (Create → Text to deck → Condense).
 
-Krok 4: vysvětli mi v jedné větě, proč to byl problém — abych se ho příště vyhnul.
-
-Krok 5: dej mi celý opravený soubor v canvasu, abych ho mohl stáhnout.
-
-Pravidla:
-- Žádné velké refaktoringy. Oprav, co je rozbité.
-- Pokud najdeš další problém, který jsem nezmínil, řekni o něm, ale ne ho oprav. Já se rozhodnu.
-- Komentáře vysvětluj česky.</pre>
+Pravidlo: prezentace není přepis. Dvouhodinová přednáška = 12 slidů, ne 40.</pre>
   </div>
   <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Bez tohohle promptu lidé vibecoding opouštějí po prvním debug session &mdash; AI jim rozbije aplikaci pokaždé, když se chystá ji opravit. S ním je to spravovatelné. Krok 1 (<em>„vysvětli, jak aplikace funguje"</em>) je kontrola, jestli AI rozumí kódu. Bez tohohle kroku vám AI klidně opraví „chybu", která chybou nebyla.
+    <strong>Z Milošovy praxe:</strong> Sentin kufřík vznikl přesně touhle cestou: markdown → Gamma → finální slidy. Novinka je varianta A &mdash; Gamma se dá připojit ke Claude jako konektor a prezentace vznikne přímo z konverzace, bez kopírování. Ze záznamu přednášky do rozeslatelné prezentace za deset minut. To dřív neuměl ani asistent, kterého byste platili.
   </div>
   <div class="tip-box">
-    <strong>Tip:</strong> <em>„Žádné velké refaktoringy"</em> je nejdůležitější pravidlo. Bez něj AI při opravě jedné funkce přepíše půlku aplikace. To je peklo na vibecodera, protože pak nepoznáte, co je nové a co staré.
-  </div>
-</div>
-
-<!-- PROMPT 20 -->
-<div class="prompt-card" id="p20">
-  <div class="prompt-card-header">
-    <h3><span class="prompt-number">20</span> Prezentace v Gammě z hrubého textu <span class="tag tag-code">kód</span></h3>
-    <p class="prompt-situation">Máte materiál na prezentaci &mdash; dokument, přepis, zápis z porady. Chcete z toho prezentaci. Ne v PowerPointu. V Gammě.</p>
-  </div>
-  <div class="prompt-box">
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopírovat</button>
-    <pre>1. V ChatGPT / Claude — příprava strukturovaného materiálu:
-
-„Tady je můj materiál:
-
-<span class="placeholder">[VLOŽTE — dokument, přepis, sérii poznámek]</span>
-
-Cíl: prezentace pro [PUBLIKUM] o [TÉMA].
-Délka: [15 / 30 / 60] minut.
-Záměr: [informovat / přesvědčit / nadchnout / spustit diskuzi].
-
-Úkol: připrav mi strukturovaný outline prezentace. Markdown formát:
-- Každý slide jako H2 nadpis.
-- Pod nadpisem 3–5 bodů (to, co bude na slidu).
-- Pak prázdný řádek a poznámka pro řečníka (mluvený komentář, 2–4 věty).
-
-Pravidla:
-- Jeden slide = jedna myšlenka.
-- Žádné slidy „o nás" / „obsah prezentace" / „děkujeme za pozornost". Začni a skonči obsahem.
-- První slide má mít hook — provokativní tvrzení, otázka, číslo.
-- Poslední slide má mít CTA — co má publikum udělat."
-
-2. V Gammě:
-- Otevřít Gamma → Create new → Text to deck.
-- Vložit ten markdown.
-- Vybrat režim Condense (ne Expand) — Gamma jinak text nafoukne.
-- Vybrat šablonu (pearl / minimal / ...).
-- Generovat.
-
-3. Úpravy:
-- Manuálně doladit slidy, kde Gamma minula intent.
-- Vyměnit AI obrázky tam, kde nesedí (Gamma má agenta, dej mu instrukci).
-- Export do PPTX, pokud je třeba.</pre>
-  </div>
-  <div class="story-box">
-    <strong>Z Milošovy praxe:</strong> Tahle kombinace (Claude → markdown → Gamma) je nejrychlejší cesta od textu k prezentaci, jakou znám. Z hodinové přípravy je 10 minut. Sentin kufřík sám vznikl takhle &mdash; markdown návrh → Gamma → finální slidy.
-  </div>
-  <div class="tip-box">
-    <strong>Tip:</strong> <em>„Condense, ne Expand"</em> je nejdůležitější volba. Gamma má dva režimy &mdash; když ji necháte expanzi, nafoukne text na 30 slidů. Když condense, sevře ho do 10. Pro lidi se vstupním textem je condense vždycky správně.
+    <strong>Tip:</strong> <em>Condense, ne Expand</em> &mdash; nejdůležitější volba v Gammě. V režimu Expand vám text nafoukne na 30 slidů omáčky, Condense ho sevře. A chtějte citáty doslova: slide s větou, kterou přednášející skutečně řekl, má atmosféru, kterou žádná odrážka nenahradí.
   </div>
 </div>
 
@@ -1368,7 +1632,7 @@ Pravidla:
     <div class="principle-icon">④</div>
     <div class="principle-text">
       <h4>Hrajte si s tím.</h4>
-      <p>Mraveneček. Slovo. Suno. Klonovaný hlas. Polovina mého kufříku jsou hračky. A hračky jsou způsob, jak pochopit nástroj líp než z manuálu.</p>
+      <p>Fiktivní biografie. Dětská kresba. Víno s analytikem. Kus mého kufříku jsou hračky. A hračky jsou způsob, jak pochopit nástroj líp než z manuálu.</p>
     </div>
   </div>
 
@@ -1393,7 +1657,7 @@ Pravidla:
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>Milošův kufřík &bull; 20 promptů na psaní, přemýšlení, kreativitu a kód</p>
+  <p>Milošův kufřík &bull; 30 promptů na psaní, čtení, research, kreativitu a život s AI</p>
   <p>Miloš Čermák &bull; <a href="https://inspiruj.se">Inspiruj.se</a> &bull; 2026</p>
   <p style="margin-top: 8px; opacity: 0.7;"><a href="index.html">← Rozcestník</a> &bull; Doplněk k <a href="sentin-kufrik.html">Sentinu kufříku</a></p>
 </div>

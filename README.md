@@ -1,6 +1,6 @@
 # Kufřík
 
-**37 AI promptů od Senty a Miloše Čermákových.** Dva pohledy, jeden cíl: aby AI nebyla hračka ani strašák, ale nástroj, který šetří čas a rozšiřuje, co dokážete.
+**47 AI promptů od Senty a Miloše Čermákových.** Dva pohledy, jeden cíl: aby AI nebyla hračka ani strašák, ale nástroj, který šetří čas a rozšiřuje, co dokážete.
 
 🌐 **Live:** [kufrik.inspiruj.se](https://kufrik.inspiruj.se)
 
@@ -11,9 +11,9 @@
 | Kufřík | Doména | Promptů | Jazyk |
 |--------|--------|---------|-------|
 | **Sentin** | Byznys, leadership, strategie | 17 | CZ + EN |
-| **Milošův** | Psaní, myšlení, kreativita, kód | 20 | CZ |
+| **Milošův** | Psaní, čtení, kreativita, život s AI | 30 | CZ |
 
-Sourozenecké, ne konkurenční. Některé techniky se překrývají (OSINT, brainstorming, multiperspektiva) — a to je vlastnost, ne chyba. Stejná metoda funguje strategicky i kreativně.
+Sourozenecké, ne konkurenční. Některé techniky se překrývají (OSINT, multiperspektiva) — a to je vlastnost, ne chyba. Stejná metoda funguje strategicky i kreativně.
 
 ## Soubory
 
